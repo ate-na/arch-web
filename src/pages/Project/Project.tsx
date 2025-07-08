@@ -1,4 +1,5 @@
-import "./Project.css";
+import React from "react";
+import classes from "../Project/Project.module.css";
 
 const projects = [
   {
@@ -25,15 +26,15 @@ const projects = [
 
 const Project = () => {
   return (
-    <div className="projects-wrapper">
-      <ul className="list">
+    <div className={classes["projects-wrapper"]}>
+      <ul className={classes.list}>
         {projects.map((e, index) => (
-          <li className="item" key={index}>
-            <div className="label-row">
-              <span className="project-name">{e.name}</span>
-              <span className="line" />
+          <li className={classes.item} key={index}>
+            <div className={classes["label-row"]}>
+              <span className={classes["project-name"]}>{e.name}</span>
+              <span className={classes.line} />
             </div>
-            <div className="image-wrapper">
+            <div className={classes["image-wrapper"]}>
               <img src={e.src} alt={e.name} />
             </div>
           </li>

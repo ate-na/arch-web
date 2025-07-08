@@ -1,4 +1,5 @@
-import "./About.css";
+import React from "react";
+import classes from "../About/About.module.css";
 
 const data = {
   image: "https://www.that-studio.com/images/koukaki/koukaki-2.jpg",
@@ -18,15 +19,15 @@ const data = {
 
 const About = () => {
   return (
-    <section className="about-wrapper">
-      <div className="about-content">
+    <section className={classes["about-wrapper"]}>
+      <div className={classes["about-content"]}>
         <h2>About</h2>
         <p>{data.description}</p>
-        <a href={`mailto:${data.email}`} className="email">
+        <a href={`mailto:${data.email}`} className={classes.email}>
           {data.email}
         </a>
 
-        <div className="phones">
+        <div className={classes.phones}>
           {data.phones.map((e, index) => {
             return (
               <span key={index}>
@@ -37,10 +38,12 @@ const About = () => {
           })}
         </div>
         {data.workers.map((e, index) => (
-          <div className="worker" key={index}>
+          <div className={classes.worker} key={index}>
             <p>
-              <span className="name-worker">{e.name} ,</span>
-              <span className="description-worker">{e.description}</span>
+              <span className={classes["name-worker"]}>{e.name} ,</span>
+              <span className={classes["description-worker"]}>
+                {e.description}
+              </span>
             </p>
           </div>
         ))}

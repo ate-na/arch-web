@@ -1,0 +1,59 @@
+.about-wrapper {
+  display: grid;
+  max-width: 1500px;
+  margin: 100px auto 100px;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 100px;
+  padding: 0 100px;
+}
+
+.about-wrapper img {
+  width: 85%;
+  max-height: 100vh;
+  object-fit: cover;
+}
+
+.about-content {
+  max-width: 600px;
+}
+
+.about-content h2 {
+  font-weight: 600;
+}
+
+.email {
+  font-weight: 800;
+  text-decoration: none;
+  color: black;
+}
+
+.about-content p {
+  margin: 32px 0;
+  line-height: 1.5;
+  color: rgb(89, 88, 88);
+}
+
+.phones {
+  margin-top: 20px;
+}
+.name-worker {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.description-worker {
+  font-weight: normal;
+}
+
+@media screen and (max-width: 960px) {
+  .about-wrapper {
+    margin: 32px 0px;
+    padding: 0 32px;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+  }
+
+  .about-wrapper img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,75 @@
+body {
+  overflow: hidden;
+}
+
+.home-main {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-section {
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+}
+
+.home-main h2 {
+  margin-left: 2rem;
+  color: black;
+}
+.home-main ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.home-main ul li {
+  margin-right: 2rem;
+  list-style: none;
+  padding-top: 1rem !important;
+}
+
+.home-main section {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-projects {
+  overflow: visible;
+  position: relative;
+  width: 15rem;
+  height: 26rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  left: calc(20% * index);
+}
+
+.home-projects img {
+  height: 22rem;
+  width: 14rem;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+  transition: all 1s ease-in-out;
+}
+
+.home-projects-title {
+  position: relative;
+  z-index: 11;
+  pointer-events: auto;
+  transition: "font-weight 0.3s ease";
+  display: "inline-block";
+  margin-top: "0.5rem";
+}

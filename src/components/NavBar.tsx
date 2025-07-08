@@ -1,4 +1,4 @@
-import "./NavBar.css";
+import classes from "../components/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
@@ -15,15 +15,17 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`main-header`}>
-      <div className="header-container">
-        <div className="logo">
+    <header className={classes["main-header"]}>
+      <div className={classes["header-container"]}>
+        <div className={classes.logo}>
           <NavLink to="/">that studio</NavLink>
         </div>
-        <nav className="nav-links">
+        <nav className={classes["nav-links"]}>
           {!isMobile && (
             <NavLink
-              className={({ isActive }) => (isActive ? "nav-active" : "")}
+              className={({ isActive }) =>
+                isActive ? classes["nav-active"] : ""
+              }
               to="/projects"
             >
               {t("All Projects")}
@@ -37,13 +39,17 @@ const Header = () => {
             {t("Blogs")}
           </NavLink> */}
           <NavLink
-            className={({ isActive }) => (isActive ? "nav-active" : "")}
+            className={({ isActive }) =>
+              isActive ? classes["nav-active"] : ""
+            }
             to="/about"
           >
             {t("About")}
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? "nav-active" : "")}
+            className={({ isActive }) =>
+              isActive ? classes["nav-active"] : ""
+            }
             to="/instagram"
           >
             {t("Instagram")}

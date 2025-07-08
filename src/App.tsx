@@ -23,7 +23,7 @@ function App() {
   }, [i18n.language]);
 
   return (
-    <div>
+    <div className="container">
       <BrowserRouter>
         <Header />
         <main>

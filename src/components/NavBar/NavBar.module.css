@@ -11,12 +11,25 @@
   align-items: center;
   margin: 0 16px;
 }
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 25vw;
+}
 
 .logo a {
   font-size: 3rem;
   text-decoration: none;
   color: black;
   letter-spacing: 0.5px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20vw;
 }
 
 .nav-links a {

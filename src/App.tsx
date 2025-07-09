@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Projects from "./pages/Project/Project";

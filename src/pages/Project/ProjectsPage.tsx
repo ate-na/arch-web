@@ -3,11 +3,6 @@ import ProjectsList from "./ProjectsList";
 import ProjectData from "./ProjectData";
 import type { Project } from "./types";
 
-// type Project = {
-//   name: string;
-//   src: string;
-// };
-
 const ProjectsPage: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 

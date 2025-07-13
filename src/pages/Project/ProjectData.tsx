@@ -11,15 +11,22 @@ const ProjectData = () => {
     <section className={classes["projects-project"]}>
       <div className={classes["left-panel"]}>
         <h1>{project.name}</h1>
-        <img
-          src={project.src}
-          alt={project.name}
-          className={classes["selected-image"]}
-        />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
           consequatur inventore?
         </p>
+      </div>
+
+      <div className={classes["right-panel"]}>
+        {projects.map((project, index) => (
+          <div key={index}>
+            <img
+              src={project.src}
+              alt={project.name}
+              className={classes["right-image"]}
+            />
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -4,7 +4,7 @@
   margin: 100px auto 100px;
   grid-template-columns: 1fr 2fr;
   grid-gap: 100px;
-  padding: 0 100px;
+  padding: 10px 100px;
 }
 
 .about-wrapper img {

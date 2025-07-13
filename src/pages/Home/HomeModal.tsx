@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NavBar from "../../components/NavBar/NavBar";
+import { Link } from "react-router-dom";
 import classes from "../Home/HomeModal.module.css";
 
 interface Project {
@@ -44,7 +44,6 @@ const HomeModal: React.FC<HomeModaltProps> = ({ src, name, onClose }) => {
 
   return (
     <>
-      <NavBar />
       <section className={classes["home-modal-section"]}>
         <div className={classes["home-modal-wrapper"]}>
           <div className={classes["home-modal-data"]}>
@@ -65,7 +64,9 @@ const HomeModal: React.FC<HomeModaltProps> = ({ src, name, onClose }) => {
                 <li>323h</li>
                 <li>kefijh: kuhgy</li>
               </ul>
-              <button type="button">Learn more +</button>
+              <Link to={`/projects/${selectedProject.name}`}>
+                <button type="button">Learn more +</button>
+              </Link>
             </div>
           </div>
 

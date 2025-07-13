@@ -3,34 +3,12 @@ import type { MouseEvent } from "react";
 import { motion, useMotionValue, useAnimation } from "framer-motion";
 import HomeModal from "../Home/HomeModal";
 import classes from "./Home.module.css";
+import { projects } from "../../data/projects";
 
 interface Project {
   name: string;
   src: string;
 }
-
-const projects: Project[] = [
-  {
-    name: "Evias",
-    src: "https://www.that-studio.com/images/evias/evias-intro.png",
-  },
-  {
-    name: "Galinou",
-    src: "https://www.that-studio.com/images/galinou/galinou-intro-2.png",
-  },
-  {
-    name: "Agiou Nikolaou",
-    src: "https://www.that-studio.com/images/agiou-nikolaou/agiou-nikolaou-intro.png",
-  },
-  {
-    name: "Alimousion",
-    src: "https://www.that-studio.com/images/alimousion/alimousion-intro.png",
-  },
-  {
-    name: "Evias",
-    src: "https://www.that-studio.com/images/evias/evias-intro.png",
-  },
-];
 
 const Home: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);

@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import ProjectsList from "../src/pages/Project/ProjectsList";
 import About from "./pages/About/About";
+import ProjectData from "./pages/Project/ProjectData";
 
 function App() {
   const { i18n } = useTranslation();
@@ -28,30 +29,9 @@ function App() {
         <NavBar />
         <main>
           <Routes>
-            <Route
-              path="/"
-              element={
-                !isMobile ? (
-                  <Home />
-                ) : (
-                  <ProjectsList
-                    onSelect={(project) => {
-                      console.log("پروژه انتخاب شد:", project);
-                    }}
-                  />
-                )
-              }
-            />
-            <Route
-              path="/projects"
-              element={
-                <ProjectsList
-                  onSelect={(project) => {
-                    console.log("پروژه انتخاب شد:", project);
-                  }}
-                />
-              }
-            />
+            <Route path="/" element={!isMobile ? <Home /> : <ProjectsList />} />
+            <Route path="/projects" element={<ProjectsList />} />
+            <Route path="/projects/:name" element={<ProjectData />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </main>

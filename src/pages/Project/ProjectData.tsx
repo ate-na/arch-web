@@ -1,16 +1,12 @@
-import React from "react";
 import classes from "../Project/ProjectData.module.css";
-import type { Project } from "./types";
+import { projects } from "../../data/projects";
+import { useParams } from "react-router-dom";
 
-type Props = {
-  project: Project;
-};
-// type Project = {
-//   name: string;
-//   src: string;
-// };
+const ProjectData = () => {
+  const { name } = useParams<{ name: string }>();
+  const project = projects.find((e) => e.name === name);
 
-const ProjectData: React.FC<Props> = ({ project }) => {
+  if (!project) return <p>not found</p>;
   return (
     <section className={classes["projects-project"]}>
       <div className={classes["left-panel"]}>

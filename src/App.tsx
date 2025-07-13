@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Projects from "./pages/Project/Project";
+import ProjectsList from "../src/pages/Project/ProjectsList";
 import About from "./pages/About/About";
 
 function App() {
@@ -28,8 +28,30 @@ function App() {
         <NavBar />
         <main>
           <Routes>
-            <Route path="/" element={!isMobile ? <Home /> : <Projects />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route
+              path="/"
+              element={
+                !isMobile ? (
+                  <Home />
+                ) : (
+                  <ProjectsList
+                    onSelect={(project) => {
+                      console.log("پروژه انتخاب شد:", project);
+                    }}
+                  />
+                )
+              }
+            />
+            <Route
+              path="/projects"
+              element={
+                <ProjectsList
+                  onSelect={(project) => {
+                    console.log("پروژه انتخاب شد:", project);
+                  }}
+                />
+              }
+            />
             <Route path="/about" element={<About />} />
           </Routes>
         </main>

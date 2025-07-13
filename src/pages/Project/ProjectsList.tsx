@@ -1,7 +1,17 @@
 import React from "react";
-import classes from "../Project/Project.module.css";
+import classes from "../Project/ProjectsList.module.css";
+import type { Project } from "./types";
 
-const projects = [
+type Props = {
+  onSelect: (project: Project) => void;
+};
+
+// type Project = {
+//   name: string;
+//   src: string;
+// };
+
+const projects: Project[] = [
   {
     name: "Evias",
     src: "https://www.that-studio.com/images/evias/evias-intro.png",
@@ -24,12 +34,16 @@ const projects = [
   },
 ];
 
-const Project = () => {
+const ProjectsList: React.FC<Props> = ({ onSelect }) => {
   return (
     <div className={classes["projects-wrapper"]}>
       <ul className={classes.list}>
         {projects.map((e, index) => (
-          <li className={classes.item} key={index}>
+          <li
+            className={classes.item}
+            key={e.name + index}
+            onClick={() => onSelect(e)}
+          >
             <div className={classes["label-row"]}>
               <span className={classes["project-name"]}>{e.name}</span>
               <span className={classes.line} />
@@ -44,4 +58,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default ProjectsList;

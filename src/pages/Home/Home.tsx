@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import type { MouseEvent } from "react";
 import { motion, useMotionValue, useAnimation } from "framer-motion";
+import HomeModal from "../Home/HomeModal";
 import classes from "./Home.module.css";
 
 interface Project {
@@ -36,6 +37,7 @@ const Home: React.FC = () => {
   const imageRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -123,6 +125,7 @@ const Home: React.FC = () => {
             }}
           >
             <motion.div
+              onClick={() => setSelectedProject(project)}
               animate={{
                 x: activeIndex === index ? x.get() : 0,
                 y: activeIndex === index ? y.get() : 0,
@@ -152,6 +155,10 @@ const Home: React.FC = () => {
             </motion.div>
             <a
               href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setSelectedProject(project);
+              }}
               className={classes["home-projects-title"]}
               style={{
                 fontWeight: activeIndex === index ? "bold" : "normal",
@@ -162,6 +169,13 @@ const Home: React.FC = () => {
           </div>
         ))}
       </section>
+      {selectedProject && (
+        <HomeModal
+          src={selectedProject.src}
+          name={selectedProject.name}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </main>
   );
 };

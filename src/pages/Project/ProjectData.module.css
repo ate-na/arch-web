@@ -1,0 +1,74 @@
+.projects-project {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  /* height: 80vh; */
+  width: 100vw;
+  align-items: stretch;
+  justify-content: space-evenly;
+  overflow: hidden;
+  font-family: sans-serif;
+  /* margin-top: 8rem; */
+}
+
+.left-panel {
+  width: 40%;
+  padding: 2rem;
+}
+
+.right-panel {
+  width: 50% !important;
+
+  width: 60%;
+  max-height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+  transition: all 0.3s ease;
+}
+
+.right-panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.right-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.right-panel::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.right-panel:hover::-webkit-scrollbar {
+  width: 8px;
+}
+
+.right-panel:hover::-webkit-scrollbar-thumb {
+  background-color: #999;
+}
+
+.right-image {
+  cursor: pointer;
+  height: 18rem;
+  width: 12rem;
+  object-fit: cover;
+  box-shadow: 0px 3px 5px 5px rgba(0, 0, 0, 0.06);
+  transition: all 1s ease-in-out;
+}
+
+.right-image:hover {
+  height: 20rem;
+  width: 14rem;
+}

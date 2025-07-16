@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import ProjectsList from "../src/pages/Project/ProjectsList";
 import About from "./pages/About/About";
 import ProjectData from "./pages/Project/ProjectData";
+import LiquidToggleButton from "./components/Button/LiquidToggleButton";
 
 function App() {
   const { i18n } = useTranslation();
@@ -35,6 +36,12 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
+        {isMobile && (
+          <div className="button-wrapper">
+            <div className="liquid-bg" />
+            <LiquidToggleButton />
+          </div>
+        )}
       </BrowserRouter>
     </div>
   );

@@ -1,27 +1,18 @@
-import React from "react";
+import { useTranslation } from "react-i18next";
+import { aboutData } from "../../data/about";
 import classes from "../About/About.module.css";
 
-const data = {
-  image: "https://www.that-studio.com/images/koukaki/koukaki-2.jpg",
-  description:
-    "That Studio is an architectural practice based in Athens. Architecture, lighting, objects and craft, that studio works exploring different disciplines in the field of making.",
-  email: ["syavashaps@gmail.com"],
-  address: `Agiou NIkolaou 9,11741 Koukaki Athens, Greece`,
-  phones: ["+30 210 22 01 978", "+30 216 93 90 837"],
-  workers: [
-    {
-      name: "Anna Vokali",
-      description:
-        "born in Patras in 1987, is an architect and museum educator. She studied Architecture at the National Technical University of Athens and at École Nationale Supérieure d’Architecture de Paris-La Villette, and worked in architectural firms in Greece, France, Netherlands and Switzerland (Ateliers Jean Nouvel, Dreier Frenzel Architecture + Communication, Burckhardt+Partner). She co founded KidA (2017), a team which designs and implements experimental educational programs, workshops and diverse actions in public space, for museums and other cultural institutes. She is a founding member of that studio since 2020.",
-    },
-  ],
-};
-
 const About = () => {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
+
+  const data = aboutData.find((e) => e.lang === lang);
+  if (!data) return null;
+
   return (
     <section className={classes["about-wrapper"]}>
       <div className={classes["about-content"]}>
-        <h2>About</h2>
+        <h2>{t("About")}</h2>
         <p>{data.description}</p>
         <a href={`mailto:${data.email}`} className={classes.email}>
           {data.email}

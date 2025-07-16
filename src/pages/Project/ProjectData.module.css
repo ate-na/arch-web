@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  direction: initial;
 }
 
 .left-panel {
@@ -99,4 +100,28 @@
 
 .close-button:hover::before {
   left: 125%;
+}
+@media (max-width: 950px) {
+  .projects-project {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .left-panel {
+    width: 90%;
+    margin: auto;
+  }
+  .right-panel {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: visible;
+    max-height: none;
+  }
+  .right-panel div,
+  .right-panel img {
+    width: 100%;
+  }
 }

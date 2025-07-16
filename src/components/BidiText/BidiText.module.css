@@ -1,0 +1,12 @@
+.bidiText {
+  display: inline-block;
+  font-family: var(--font-primary, "Source Sans Pro", sans-serif);
+}
+
+:where([dir="rtl"]) .bidiText {
+  font-family: var(--font-persian, "YekanBakh", sans-serif);
+}
+
+:where([dir="ltr"]) .bidiText {
+  font-family: var(--font-english, "Source Sans Pro", sans-serif);
+}

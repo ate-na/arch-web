@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
 
 body {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "YekanBakh", "Source Sans Pro", sans-serif;
   margin: 0;
   padding: 0;
-  max-height: 100vh;
   font-weight: 400;
   padding: 1vw 2vw;
   overflow-y: auto;
@@ -15,5 +14,41 @@ a {
   color: black;
 }
 
-.container {
+.button-wrapper {
+  direction: rtl;
+  position: fixed;
+  bottom: 16px;
+  z-index: 999;
+  border-radius: 12px;
+  padding: 8px;
+  outline: none;
+}
+
+.button-wrapper:focus-within .liquid-bg {
+  opacity: 1;
+}
+
+.button-wrapper:focus-within .liquid-bg {
+  display: none !important;
+}
+
+@font-face {
+  font-family: "YekanBakh";
+  src: url("/public/fonts/Yekan-Bakh-FaNum-04-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* You can add other font weights if needed */
+@font-face {
+  font-family: "YekanBakh";
+  src: url("/public/fonts/Yekan-Bakh-FaNum-06-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+span[style*="direction: ltr"] {
+  text-align: left;
 }

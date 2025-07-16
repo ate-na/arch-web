@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Project } from "./types";
 import classes from "../Project/ProjectsList.module.css";
+import BidiText from "../../components/BidiText/BidiText";
 
 interface Props {
   product: Project;
@@ -13,7 +14,10 @@ const ProjectCard: React.FC<Props> = ({ product, index }) => {
       <Link to={`/projects/${product.name}`}>
         <li className={classes.item} key={product.name + index}>
           <div className={classes["label-row"]}>
-            <span className={classes["project-name"]}>{product.name}</span>
+            <BidiText className={classes["project-name"]} forceLtr={true}>
+              {product.name}
+            </BidiText>
+
             <span className={classes.line} />
           </div>
           <div className={classes["image-wrapper"]}>

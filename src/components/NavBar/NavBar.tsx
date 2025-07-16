@@ -20,7 +20,7 @@ const Header = () => {
     <header className={classes["main-header"]}>
       <div className={classes["header-container"]}>
         <div className={classes.logo}>
-          <NavLink to="/">that studio</NavLink>
+          <NavLink to={isMobile ? "/projects" : "/"}>that studio</NavLink>
         </div>
         <div className={classes["nav-btn"]}>
           <nav className={classes["nav-links"]}>
@@ -36,11 +36,11 @@ const Header = () => {
             )}
 
             {/* <NavLink
-            className={({ isActive }) => (isActive ? "nav-active" : "")}
-            to="/blogs"
-          >
-            {t("Blogs")}
-          </NavLink> */}
+              className={({ isActive }) => (isActive ? "nav-active" : "")}
+              to="/blogs"
+            >
+              {t("Blogs")}
+            </NavLink> */}
             <NavLink
               className={({ isActive }) =>
                 isActive ? classes["nav-active"] : ""
@@ -53,12 +53,12 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? classes["nav-active"] : ""
               }
-              to="/instagram"
+              to="/blog"
             >
-              {t("Instagram")}
+              {t("Blogs")}
             </NavLink>
           </nav>
-          <LiquidToggleButton />
+          {!isMobile && <LiquidToggleButton />}
         </div>
       </div>
     </header>

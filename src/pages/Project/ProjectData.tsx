@@ -11,10 +11,7 @@ const ProjectData = () => {
     <section className={classes["projects-project"]}>
       <div className={classes["left-panel"]}>
         <h1>{project.name}</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
-          consequatur inventore?
-        </p>
+        <p>{project.description}</p>
       </div>
 
       <div className={classes["right-panel"]}>

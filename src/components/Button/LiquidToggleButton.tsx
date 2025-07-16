@@ -1,11 +1,21 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import classes from "../Button/LiquidToggleButton.module.css";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 const LiquidToggleButton = () => {
-  const [lang, setLang] = useState<"EN" | "FA">("EN");
+  const { i18n } = useTranslation();
+  const savedLanguage = localStorage.getItem("i18nextLng")?.toLocaleUpperCase();
 
-  const toggle = () => setLang(lang === "EN" ? "FA" : "EN");
+  const [lang, setLang] = useState<"EN" | "FA">(
+    (savedLanguage as "EN" | "FA") || "EN"
+  );
+
+  const toggle = () => {
+    setLang(() => (lang === "EN" ? "FA" : "EN"));
+    i18n.changeLanguage(lang === "EN" ? "fa" : "en");
+  };
   const color = lang === "EN" ? "#cccccc" : "#63606";
 
   return (
@@ -105,7 +115,7 @@ const LiquidToggleButton = () => {
           dominantBaseline="middle"
           style={{ pointerEvents: "none" }}
         >
-          {lang}
+          {t(`${lang}`)}
         </text>
 
         <ellipse

@@ -1,5 +1,6 @@
 .projects-wrapper {
   margin: 160px 0;
+  direction: initial;
 }
 
 .list {
@@ -25,17 +26,18 @@
 }
 
 .project-name {
-  font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   color: gray;
   background: #fff;
   padding: 12px 16px;
   line-height: 1;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
   transition: color 0.3s ease;
+  direction: inherit;
+  display: inline-block;
 }
 
 .item:hover .project-name {
@@ -46,7 +48,7 @@
   flex-grow: 1;
   height: 2px;
   background-color: black;
-  margin-left: 20px;
+  margin-inline-start: 20px;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;

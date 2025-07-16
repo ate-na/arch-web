@@ -64,37 +64,26 @@
 }
 
 .close-button {
-  background: linear-gradient(135deg, gray, darkgray);
+  /* background: linear-gradient(135deg, gray, darkgray); */
   border: none;
-  color: white;
-  padding: 0.4rem 1rem;
-  font-size: 12pxrem;
+  color: black;
+  /* padding: 0.5rem 0.7rem; */
+  padding: 0.5rem 0.7rem;
+  font-size: 15px;
   font-weight: 700;
-  border-radius: 20px;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(128, 128, 128, 0.653);
+  /* box-shadow: 0 4px 15px rgba(128, 128, 128, 0.653);
   transition: background 0.4s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease; */
   position: relative;
   overflow: hidden;
-}
-
-.close-button::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -75%;
-  width: 200%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-50%) skewX(-25deg);
-  transition: left 0.6s ease;
-  pointer-events: none;
+  transition: all 0.2s ease-in-out;
 }
 
 .close-button:hover {
-  background: linear-gradient(135deg, gray, darkgray);
-  box-shadow: 0 6px 25px rgba(128, 128, 128, 0.653);
+  background: rgba(168, 166, 166, 0.588);
+  /* box-shadow: 0 4px 15px rgba(128, 128, 128, 0.653); */
 }
 
 .close-button:hover::before {

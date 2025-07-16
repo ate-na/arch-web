@@ -57,7 +57,7 @@ const ProjectData = () => {
         <h1>{project.name}</h1>
         <p>{project.description}</p>
         <button onClick={handleClose} className={classes["close-button"]}>
-          {t("cancel")}
+          {t("close X")}
         </button>
       </div>
 

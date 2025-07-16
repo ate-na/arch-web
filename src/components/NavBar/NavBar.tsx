@@ -18,9 +18,25 @@ const Header = () => {
 
   return (
     <header className={classes["main-header"]}>
+      {isMobile && (
+        <div className={classes["floating-toggle"]}>
+          <LiquidToggleButton />
+        </div>
+      )}
       <div className={classes["header-container"]}>
         <div className={classes.logo}>
-          <NavLink to={isMobile ? "/projects" : "/"}>that studio</NavLink>
+          <NavLink to={isMobile ? "/projects" : "/"}>
+            <img style={{ width: "80px" }} src={"/thatLab.png"} />
+            <p
+              style={{
+                padding: "0",
+                marginTop: "-0.4rem",
+                fontSize: "16px",
+              }}
+            >
+              {t("THAT DESING OFFICE")}
+            </p>
+          </NavLink>
         </div>
         <div className={classes["nav-btn"]}>
           <nav className={classes["nav-links"]}>

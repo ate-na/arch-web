@@ -19,8 +19,8 @@ const LiquidToggleButton = () => {
   const color = lang === "EN" ? "#cccccc" : "#63606";
 
   return (
-    <div className={classes.wrapper} onClick={toggle}>
-      <svg width="40" height="40" className={classes.svg}>
+    <div className={`${classes.wrapper} ${classes.small}`} onClick={toggle}>
+      <svg viewBox="0 0 120 140" className={classes.svg}>
         <defs>
           <filter id="gooey">
             <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
@@ -36,7 +36,6 @@ const LiquidToggleButton = () => {
             <feComposite in="SourceGraphic" in2="goo" operator="atop" />
           </filter>
         </defs>
-
         <g filter="url(#gooey)">
           <AnimatePresence mode="wait">
             <>

@@ -36,12 +36,12 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
-        {isMobile && (
+        {/* {isMobile && (
           <div className="button-wrapper">
             <div className="liquid-bg" />
             <LiquidToggleButton />
           </div>
-        )}
+        )} */}
       </BrowserRouter>
     </div>
   );

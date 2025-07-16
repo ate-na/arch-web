@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  direction: initial;
 }
 
 .left-panel {
@@ -119,6 +118,9 @@
     flex-direction: column;
     overflow-y: visible;
     max-height: none;
+
+    overflow-y: unset !important;
+    max-height: unset !important;
   }
   .right-panel div,
   .right-panel img {

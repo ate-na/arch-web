@@ -9,6 +9,8 @@ const ProjectData = () => {
   const navigate = useNavigate();
   const project = projects.find((e) => e.name === name);
 
+  const lng = localStorage.getItem("i18nextLng");
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 

@@ -15,7 +15,7 @@ a {
   color: black;
 }
 
-.button-wrapper {
+/* .button-wrapper {
   direction: rtl;
   position: fixed;
   bottom: 16px;
@@ -23,15 +23,15 @@ a {
   border-radius: 12px;
   padding: 8px;
   outline: none;
-}
+} */
 
-.button-wrapper:focus-within .liquid-bg {
+/* .button-wrapper:focus-within .liquid-bg {
   opacity: 1;
 }
 
 .button-wrapper:focus-within .liquid-bg {
   display: none !important;
-}
+} */
 
 @font-face {
   font-family: "YekanBakh";
@@ -52,4 +52,12 @@ a {
 
 span[style*="direction: ltr"] {
   text-align: left;
+}
+
+:lang(en) {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+:lang(fa) {
+  font-family: "YekanBakh", "Source Sans Pro", sans-serif;
 }

@@ -17,8 +17,14 @@
   top: -35px;
   right: -20px;
   z-index: 9999;
-  /* transform: scale(0.6); */
 }
+
+.title {
+  font-size: 16px;
+  margin-top: -0.4rem;
+  padding: 0;
+}
+
 .nav-btn {
   display: flex;
   align-items: center;

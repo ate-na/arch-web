@@ -2,7 +2,7 @@ import type { Project } from "../pages/Project/types";
 
 export const projects: Project[] = [
   {
-    name: "Evias",
+    name: "KORDAN",
     src: "https://www.that-studio.com/images/evias/evias-intro.png",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,consequatur inventore?",

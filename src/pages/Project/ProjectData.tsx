@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "../Project/ProjectData.module.css";
 import { projects } from "../../data/projects";
 import { useParams, useNavigate } from "react-router-dom";
 import ProjectModal from "./ProjectModal";
+import { t } from "i18next";
 
 const ProjectData = () => {
   const { name } = useParams<{ name: string }>();
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
   const navigate = useNavigate();
   const project = projects.find((e) => e.name === name);
 
@@ -13,6 +16,13 @@ const ProjectData = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const checkWidth = () => setIsMobile(window.innerWidth < 960);
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
+    return () => window.removeEventListener("resize", checkWidth);
+  }, []);
 
   if (!project) return <p>not found</p>;
 
@@ -45,9 +55,9 @@ const ProjectData = () => {
     <section className={classes["projects-project"]}>
       <div className={classes["left-panel"]}>
         <h1>{project.name}</h1>
-        <p>لورم ایپسوم برای توضیحات پروژه</p>
+        <p>{project.description}</p>
         <button onClick={handleClose} className={classes["close-button"]}>
-          بازگشت
+          {t("cancel")}
         </button>
       </div>
 
@@ -55,8 +65,8 @@ const ProjectData = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            onClick={() => openModal(index)}
-            style={{ cursor: "pointer" }}
+            onClick={() => !isMobile && openModal(index)}
+            style={{}}
           >
             <img
               src={project.src}

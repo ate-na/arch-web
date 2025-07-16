@@ -20,7 +20,7 @@ const LiquidToggleButton = () => {
 
   return (
     <div className={`${classes.wrapper} ${classes.small}`} onClick={toggle}>
-      <svg viewBox="0 0 120 140" className={classes.svg}>
+      <svg height="40" width="40" className={classes.svg}>
         <defs>
           <filter id="gooey">
             <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
@@ -114,7 +114,7 @@ const LiquidToggleButton = () => {
           dominantBaseline="middle"
           style={{ pointerEvents: "none" }}
         >
-          {t(`${lang}`)}
+          {t(`${lang === "EN" ? "FA" : "EN"}`)}
         </text>
 
         <ellipse

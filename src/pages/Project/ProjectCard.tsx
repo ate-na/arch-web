@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import type { Project } from "./types";
 import classes from "../Project/ProjectsList.module.css";
 import BidiText from "../../components/BidiText/BidiText";
+import { t } from "i18next";
 
 interface Props {
   product: Project;
@@ -15,7 +16,7 @@ const ProjectCard: React.FC<Props> = ({ product, index }) => {
         <li className={classes.item} key={product.name + index}>
           <div className={classes["label-row"]}>
             <BidiText className={classes["project-name"]} forceLtr={true}>
-              {product.name}
+              {t(`${product.name}`)}
             </BidiText>
 
             <span className={classes.line} />

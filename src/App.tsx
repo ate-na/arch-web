@@ -6,7 +6,6 @@ import Home from "./pages/Home/Home";
 import ProjectsList from "../src/pages/Project/ProjectsList";
 import About from "./pages/About/About";
 import ProjectData from "./pages/Project/ProjectData";
-import LiquidToggleButton from "./components/Button/LiquidToggleButton";
 
 function App() {
   const { i18n } = useTranslation();
@@ -25,7 +24,7 @@ function App() {
   }, [i18n.language]);
 
   return (
-    <div className="container">
+    <div className="container" lang={i18n.language}>
       <BrowserRouter>
         <NavBar />
         <main>

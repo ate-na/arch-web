@@ -27,15 +27,7 @@ const Header = () => {
         <div className={classes.logo}>
           <NavLink to={isMobile ? "/projects" : "/"}>
             <img style={{ width: "80px" }} src={"/thatLab.png"} />
-            <p
-              style={{
-                padding: "0",
-                marginTop: "-0.4rem",
-                fontSize: "16px",
-              }}
-            >
-              {t("THAT DESING OFFICE")}
-            </p>
+            <p className={classes.title}>{t("THAT DESING OFFICE")}</p>
           </NavLink>
         </div>
         <div className={classes["nav-btn"]}>

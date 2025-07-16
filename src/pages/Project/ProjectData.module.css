@@ -116,13 +116,23 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    max-height: none;
-
-    overflow-y: hidden !important;
-    max-height: unset !important;
   }
   .right-panel div,
   .right-panel img {
     width: 100%;
+  }
+
+  .right-image {
+    transition: none;
+  }
+
+  .right-image:hover {
+    width: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .right-panel:hover::-webkit-scrollbar {
+    width: 0px;
   }
 }

@@ -43,9 +43,12 @@ const ProjectData = () => {
     <section className={classes["projects-project"]}>
       <div className={classes["left-panel"]}>
         <h1>{project.name}</h1>
-        <p>لورم ایپسوم برای توضیحات پروژه</p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing el Lorem ipsum
+          dolor, sit amet consectetur adipisicing elit. Rem incidunt
+        </p>
         <button onClick={handleClose} className={classes["close-button"]}>
-          بازگشت
+          close X
         </button>
       </div>
 

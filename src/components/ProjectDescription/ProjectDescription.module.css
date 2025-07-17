@@ -48,6 +48,7 @@
 .project-specs li {
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
+  list-style: none;
 }
 
 .project-phase {

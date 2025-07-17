@@ -2,100 +2,148 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "../Home/HomeModal.module.css";
 import { useTranslation } from "react-i18next";
+import { projects } from "../../data/projects";
 
-interface Project {
-  name: string;
-  src: string;
+interface ProjectDescription {
+  title: string;
+  subtitle: string;
+  location: string;
+  area: string;
+  floors: number;
+  style: string;
+  description: string[];
+  phases: { title: string; points: string[] }[];
+  features: string[];
 }
 
-const projects: Project[] = [
-  {
-    name: "Evias",
-    src: "https://www.that-studio.com/images/evias/evias-intro.png",
-  },
-  {
-    name: "Galinou",
-    src: "https://www.that-studio.com/images/galinou/galinou-intro-2.png",
-  },
-  {
-    name: "Agiou Nikolaou",
-    src: "https://www.that-studio.com/images/agiou-nikolaou/agiou-nikolaou-intro.png",
-  },
-  {
-    name: "Alimousion",
-    src: "https://www.that-studio.com/images/alimousion/alimousion-intro.png",
-  },
-  {
-    name: "Evias",
-    src: "https://www.that-studio.com/images/evias/evias-intro.png",
-  },
-];
+interface Project {
+  id: number;
+  name: string;
+  en_name: string;
+  fa_name: string;
+  src: string;
+  en_description: ProjectDescription;
+  fa_description: ProjectDescription;
+}
 
-interface HomeModaltProps {
+interface HomeModalProps {
   src: string;
   name: string;
   onClose: () => void;
 }
 
-const HomeModal: React.FC<HomeModaltProps> = ({ src, name, onClose }) => {
-  const [selectedProject, setSelectedProject] = useState<Project>({
-    name,
-    src,
-  });
+const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
+  // پیدا کردن پروژه بر اساس name و src
+  const foundProject = projects.find((p) => p.name === name && p.src === src);
 
-  const { t } = useTranslation();
+  // اگر پروژه پیدا نشد، یه پروژه فرضی بساز
+  const fallbackProject: Project = {
+    id: 0,
+    name: "Unknown",
+    en_name: "Unknown",
+    fa_name: "نامشخص",
+    src: "",
+    en_description: {
+      title: "",
+      subtitle: "",
+      location: "",
+      area: "",
+      floors: 0,
+      style: "",
+      description: [],
+      phases: [],
+      features: [],
+    },
+    fa_description: {
+      title: "",
+      subtitle: "",
+      location: "",
+      area: "",
+      floors: 0,
+      style: "",
+      description: [],
+      phases: [],
+      features: [],
+    },
+  };
+
+  const [selectedProject, setSelectedProject] = useState<Project>(
+    foundProject ?? fallbackProject
+  );
+
+  const { t, i18n } = useTranslation();
+
+  // مشخص کردن زبان برای نمایش اطلاعات
+  const lang = i18n.language; // فرضا 'fa' یا 'en'
+  const desc =
+    lang === "fa"
+      ? selectedProject.fa_description
+      : selectedProject.en_description;
 
   return (
-    <>
-      <section className={classes["home-modal-section"]}>
-        <div className={classes["home-modal-wrapper"]}>
-          <div className={classes["home-modal-data"]}>
-            <div className={classes["home-modal-left-side"]}>
-              <h1>{selectedProject.name}</h1>
-              <button type="button" onClick={onClose}>
-                {t(`close X`)}
-              </button>
-            </div>
-            <div className={classes["home-modal-img"]}>
-              <img src={selectedProject.src} alt={selectedProject.name} />
-            </div>
-            <div className={classes["home-modal-right-side"]}>
-              <ul>
-                <li>hiiiiiiiiiiiiiii</li>
-                <li>lijjjj</li>
-                <li>kkkkkkkkkkkkk</li>
-                <li>323h</li>
-                <li>kefijh: kuhgy</li>
-              </ul>
-              <Link to={`/projects/${selectedProject.name}`}>
-                <button type="button">{t("Learn more +")}</button>
-              </Link>
-            </div>
+    <section className={classes["home-modal-section"]}>
+      <div className={classes["home-modal-wrapper"]}>
+        <div className={classes["home-modal-data"]}>
+          <div className={classes["home-modal-left-side"]}>
+            <h1>
+              {lang === "fa"
+                ? selectedProject.fa_name
+                : selectedProject.en_name}
+            </h1>
+            <button type="button" onClick={onClose}>
+              {t(`close X`)}
+            </button>
           </div>
-
-          <div className={classes["home-modal-projects-list"]}>
-            {projects.map((project, index) => (
-              <a
-                key={index}
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setSelectedProject(project);
-                }}
-                style={{
-                  fontWeight:
-                    selectedProject.name === project.name ? "bold" : "normal",
-                  cursor: "pointer",
-                  marginRight: "1rem",
-                }}
-              >
-                {project.name}
-              </a>
-            ))}
+          <div className={classes["home-modal-img"]}>
+            <img src={selectedProject.src} alt={selectedProject.name} />
+          </div>
+          <div
+            className={`${classes["home-modal-right-side"]} ${
+              lang === "fa" ? classes.fa : ""
+            }`}
+          >
+            <ul>
+              <li>
+                <strong>{t("location")}:</strong> {desc.location}
+              </li>
+              <li>
+                <strong>{t("metraz")}:</strong> {desc.area}
+              </li>
+              <li>
+                <strong>{t("Number of floors")}:</strong> {desc.floors}
+              </li>
+              <li>
+                <strong>{t("Design style")}:</strong> {desc.style}
+              </li>
+            </ul>
+            <Link to={`/projects/${selectedProject.name}`}>
+              <button type="button">{t("Learn more +")}</button>
+            </Link>
           </div>
         </div>
-      </section>
-    </>
+
+        <div className={classes["home-modal-projects-list"]}>
+          {projects.map((project, index) => (
+            <a
+              key={index}
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setSelectedProject(project);
+              }}
+              style={{
+                fontWeight:
+                  selectedProject.name === project.name ? "bold" : "normal",
+                cursor: "pointer",
+                marginRight: "1rem",
+              }}
+            >
+              {lang === "fa" ? project.fa_name : project.en_name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

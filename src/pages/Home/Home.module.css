@@ -20,7 +20,7 @@
 }
 .home-main ul {
   display: flex;
-  align-items: center;
+  align-items: self-start;
   justify-content: space-evenly;
 }
 

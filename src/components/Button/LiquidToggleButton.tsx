@@ -6,7 +6,7 @@ import { t } from "i18next";
 
 const LiquidToggleButton = () => {
   const { i18n } = useTranslation();
-  const savedLanguage = localStorage.getItem("i18nextLng")?.toLocaleUpperCase();
+  const savedLanguage = i18n.language?.toLocaleUpperCase();
 
   const [lang, setLang] = useState<"EN" | "FA">(
     (savedLanguage as "EN" | "FA") || "EN"

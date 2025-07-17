@@ -1,28 +1,33 @@
 import { Link } from "react-router-dom";
 import type { Project } from "./types";
 import classes from "../Project/ProjectsList.module.css";
-import BidiText from "../../components/BidiText/BidiText";
 import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 interface Props {
-  product: Project;
+  project: Project;
   index: number;
 }
 
-const ProjectCard: React.FC<Props> = ({ product, index }) => {
+const ProjectCard: React.FC<Props> = ({ project, index }) => {
+  const { i18n } = useTranslation();
+  const lang = i18n.language as "fa" | "en";
   return (
     <div className="border p-4">
-      <Link to={`/projects/${product.name}`}>
-        <li className={classes.item} key={product.name + index}>
+      <Link to={`/projects/${project.name}`}>
+        <li className={classes.item} key={project[`${lang}_name`] + index}>
           <div className={classes["label-row"]}>
-            <BidiText className={classes["project-name"]} forceLtr={true}>
-              {t(`${product.name}`)}
-            </BidiText>
+            <span className={classes["project-name"]}>
+              {t(`${project[`${lang}_name`]}`)}
+            </span>
 
-            <span className={classes.line} />
+            <span
+              className={classes.line}
+              style={{ transformOrigin: lang === "en" ? "left" : "right" }}
+            />
           </div>
           <div className={classes["image-wrapper"]}>
-            <img src={product.src} alt={product.name} />
+            <img src={project.src} alt={project[`${lang}_name`]} />
           </div>
         </li>
       </Link>

@@ -94,12 +94,18 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: fit-content;
   }
 
   .left-panel {
     width: 90%;
-    margin: auto;
+    /* margin: auto; */
   }
+
+  .left-panel p {
+    text-align: justify;
+  }
+
   .right-panel {
     width: 90%;
     margin: auto;

@@ -5,7 +5,8 @@ body {
   margin: 0;
   padding: 0;
   font-weight: 400;
-  padding: 1vw 2vw;
+  padding: 0 2vw;
+  /* padding: 1vw 2vw; */
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -50,9 +51,9 @@ a {
   font-display: swap;
 }
 
-span[style*="direction: ltr"] {
+/* span[style*="direction: ltr"] {
   text-align: left;
-}
+} */
 
 :lang(en) {
   font-family: "Source Sans Pro", sans-serif;

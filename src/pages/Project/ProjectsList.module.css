@@ -1,14 +1,10 @@
-.projects-wrapper {
-  /* margin: 160px 0; */
-  /* direction: initial; */
-}
-
 .list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 80px 64px;
   margin: 64px;
   list-style: none;
+  padding: 10px;
   padding-bottom: 30px;
 }
 
@@ -36,8 +32,8 @@
   text-overflow: ellipsis;
   max-width: 100%;
   transition: color 0.3s ease;
-  direction: inherit;
-  display: inline-block;
+  /* direction: inherit; */
+  /* display: inline-block; */
 }
 
 .item:hover .project-name {

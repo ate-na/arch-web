@@ -1,29 +1,25 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "../Project/ProjectData.module.css";
 import { projects } from "../../data/projects";
 import { useParams, useNavigate } from "react-router-dom";
 import ProjectModal from "./ProjectModal";
 import { t } from "i18next";
+import i18n from "../../i18n";
+import useIsMobile from "../../hooks/useIsMobile";
+import ProjectDescription from "../../components/ProjectDescription/ProjectDescription";
 
 const ProjectData = () => {
   const { name } = useParams<{ name: string }>();
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  const navigate = useNavigate();
-  const project = projects.find((e) => e.name === name);
-
-  const lng = localStorage.getItem("i18nextLng");
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    const checkWidth = () => setIsMobile(window.innerWidth < 960);
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
-    return () => window.removeEventListener("resize", checkWidth);
-  }, []);
+  const isMobile = useIsMobile();
+  const lng = i18n.language as "en" | "fa";
 
+  const navigate = useNavigate();
+
+  if (!name) return <p></p>;
+  const project = projects.find((e) => e.name === name);
   if (!project) return <p>not found</p>;
 
   const handleClose = () => {
@@ -54,8 +50,7 @@ const ProjectData = () => {
   return (
     <section className={classes["projects-project"]}>
       <div className={classes["left-panel"]}>
-        <h1>{project.name}</h1>
-        <p>{project.description}</p>
+        <ProjectDescription projectData={project[`${lng}_description`]} />
         <button onClick={handleClose} className={classes["close-button"]}>
           {t("close X")}
         </button>
@@ -70,7 +65,7 @@ const ProjectData = () => {
           >
             <img
               src={project.src}
-              alt={project.name}
+              alt={project[`${lng}_name`]}
               className={classes["right-image"]}
             />
           </div>

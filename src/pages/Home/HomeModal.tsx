@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "../Home/HomeModal.module.css";
+import { useTranslation } from "react-i18next";
 
 interface Project {
   name: string;
@@ -42,6 +43,8 @@ const HomeModal: React.FC<HomeModaltProps> = ({ src, name, onClose }) => {
     src,
   });
 
+  const { t } = useTranslation();
+
   return (
     <>
       <section className={classes["home-modal-section"]}>
@@ -50,7 +53,7 @@ const HomeModal: React.FC<HomeModaltProps> = ({ src, name, onClose }) => {
             <div className={classes["home-modal-left-side"]}>
               <h1>{selectedProject.name}</h1>
               <button type="button" onClick={onClose}>
-                close X
+                {t(`close X`)}
               </button>
             </div>
             <div className={classes["home-modal-img"]}>
@@ -65,7 +68,7 @@ const HomeModal: React.FC<HomeModaltProps> = ({ src, name, onClose }) => {
                 <li>kefijh: kuhgy</li>
               </ul>
               <Link to={`/projects/${selectedProject.name}`}>
-                <button type="button">Learn more +</button>
+                <button type="button">{t("Learn more +")}</button>
               </Link>
             </div>
           </div>

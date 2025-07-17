@@ -8,6 +8,7 @@ import { projects } from "../../data/projects";
 interface Project {
   name: string;
   src: string;
+  id: number;
 }
 
 const Home: React.FC = () => {

@@ -1,20 +1,12 @@
-import React from "react";
 import LiquidToggleButton from "../../components/Button/LiquidToggleButton";
 import classes from "../NavBar/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const Header = () => {
   const { t } = useTranslation();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkWidth = () => setIsMobile(window.innerWidth < 960);
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
-    return () => window.removeEventListener("resize", checkWidth);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <header className={classes["main-header"]}>

@@ -7,7 +7,7 @@ const ProjectsList = () => {
     <div className={classes["projects-wrapper"]}>
       <ul className={classes.list}>
         {projects.map((e, index) => (
-          <ProjectCard product={e} index={index} />
+          <ProjectCard project={e} index={index} />
         ))}
       </ul>
     </div>

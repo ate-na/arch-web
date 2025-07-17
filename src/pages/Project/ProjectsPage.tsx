@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import ProjectsList from "./ProjectsList";
 import ProjectData from "./ProjectData";
-import type { Project } from "./types";
+// import type { Project } from "./types";
 
 const ProjectsPage: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  // const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <div>
-      <ProjectsList onSelect={setSelectedProject} />
-      {selectedProject && <ProjectData project={selectedProject} />}
+      <ProjectsList />
+      <ProjectData />
     </div>
   );
 };

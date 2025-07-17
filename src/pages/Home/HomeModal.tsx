@@ -33,10 +33,8 @@ interface HomeModalProps {
 }
 
 const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
-  // پیدا کردن پروژه بر اساس name و src
   const foundProject = projects.find((p) => p.name === name && p.src === src);
 
-  // اگر پروژه پیدا نشد، یه پروژه فرضی بساز
   const fallbackProject: Project = {
     id: 0,
     name: "Unknown",
@@ -73,8 +71,7 @@ const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
 
   const { t, i18n } = useTranslation();
 
-  // مشخص کردن زبان برای نمایش اطلاعات
-  const lang = i18n.language; // فرضا 'fa' یا 'en'
+  const lang = i18n.language;
   const desc =
     lang === "fa"
       ? selectedProject.fa_description

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import type { MouseEvent } from "react";
 import { motion, useMotionValue, useAnimation } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import HomeModal from "../Home/HomeModal";
 import classes from "./Home.module.css";
 import { projects } from "../../data/projects";
@@ -12,6 +13,8 @@ interface Project {
 }
 
 const Home: React.FC = () => {
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageRefs = useRef<Array<HTMLDivElement | null>>([]);
 
@@ -143,7 +146,7 @@ const Home: React.FC = () => {
                 fontWeight: activeIndex === index ? "bold" : "normal",
               }}
             >
-              {project.name}
+              {lang === "fa" ? project.fa_name : project.en_name}
             </a>
           </div>
         ))}

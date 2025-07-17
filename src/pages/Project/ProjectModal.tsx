@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import classes from "./ProjectModal.module.css";
 
 interface Props {
@@ -40,18 +41,20 @@ const ProjectModal: React.FC<Props> = ({
         />
 
         <button className={classes.prev} onClick={onPrev}>
-          ‹
+          <ChevronLeft size={32} strokeWidth={1} />
         </button>
+
         <button className={classes.next} onClick={onNext}>
-          ›
+          <ChevronRight size={32} strokeWidth={1} />
         </button>
+
         <button
           className={classes.close}
           onClick={handleClose}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          ×
+          <X size={26} strokeWidth={2.5} />
         </button>
       </div>
     </div>

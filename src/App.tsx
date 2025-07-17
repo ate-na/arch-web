@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import ProjectsList from "../src/pages/Project/ProjectsList";
 import About from "./pages/About/About";
+import Blogs from "./pages/Blogs/Blogs";
 import ProjectData from "./pages/Project/ProjectData";
 import useIsMobile from "./hooks/useIsMobile";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
@@ -29,6 +30,7 @@ function App() {
             <Route path="/projects" element={<ProjectsList />} />
             <Route path="/projects/:name" element={<ProjectData />} />
             <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blogs />} />
           </Routes>
         </main>
       </BrowserRouter>

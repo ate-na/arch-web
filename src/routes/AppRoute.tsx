@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "../components/NavBar/NavBar";
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import Home from "../pages/Home/Home";
@@ -14,18 +14,8 @@ interface AppRoutesProps {
 }
 
 const AppRoutes: FC<AppRoutesProps> = ({ isMobile }) => {
-  const location = useLocation();
-
-  console.log(location.pathname);
-  const hideNavbar =
-    !location.pathname.includes("projects") &&
-    !location.pathname.includes("about") &&
-    !location.pathname.includes("blog") &&
-    location.pathname !== "/";
-
   return (
     <>
-      {/* {!hideNavbar &&} */}
       <NavBar />
       <main>
         <ScrollToTop />

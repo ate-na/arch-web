@@ -1,9 +1,9 @@
 import { t } from "i18next";
 import classes from "./ProjectDescription.module.css";
-import type { ProjectDescription } from "../../pages/Project/types";
+import type { ProjectDescription as ProjectDescriptionType } from "../../pages/Project/types";
 
 interface Props {
-  projectData: ProjectDescription;
+  projectData: ProjectDescriptionType;
 }
 const ProjectDescription: React.FC<Props> = ({ projectData }) => {
   return (

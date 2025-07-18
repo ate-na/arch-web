@@ -3,28 +3,7 @@ import { Link } from "react-router-dom";
 import classes from "../Home/HomeModal.module.css";
 import { useTranslation } from "react-i18next";
 import { projects } from "../../data/projects";
-
-interface ProjectDescription {
-  title: string;
-  subtitle: string;
-  location: string;
-  area: string;
-  floors: number;
-  style: string;
-  description: string[];
-  phases: { title: string; points: string[] }[];
-  features: string[];
-}
-
-interface Project {
-  id: number;
-  name: string;
-  en_name: string;
-  fa_name: string;
-  src: string;
-  en_description: ProjectDescription;
-  fa_description: ProjectDescription;
-}
+import type { Project } from "../Project/types";
 
 interface HomeModalProps {
   src: string;
@@ -63,6 +42,7 @@ const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
       phases: [],
       features: [],
     },
+    galleries: [],
   };
 
   const [selectedProject, setSelectedProject] = useState<Project>(

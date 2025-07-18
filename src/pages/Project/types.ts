@@ -7,8 +7,8 @@ export type ProjectDescription = {
   title: string;
   subtitle: string;
   location: string;
-  area: string;
-  floors: number;
+  area?: string;
+  floors?: number;
   style: string;
   description: string[];
   phases: ProjectPhase[];
@@ -23,6 +23,7 @@ export type Project = {
   en_description: ProjectDescription;
   fa_description: ProjectDescription;
   name: string;
+  galleries: string[];
 };
 
 // export type description = {};

@@ -1,0 +1,45 @@
+import { Routes, Route, useLocation } from "react-router-dom";
+import NavBar from "../components/NavBar/NavBar";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
+import Home from "../pages/Home/Home";
+import ProjectsList from "../pages/Project/ProjectsList";
+import ProjectData from "../pages/Project/ProjectData";
+import About from "../pages/About/About";
+import Blogs from "../pages/Blogs/Blogs";
+import NotFound from "../components/NotFoundError/NotFound";
+import type { FC } from "react";
+
+interface AppRoutesProps {
+  isMobile: boolean;
+}
+
+const AppRoutes: FC<AppRoutesProps> = ({ isMobile }) => {
+  const location = useLocation();
+
+  console.log(location.pathname);
+  const hideNavbar =
+    !location.pathname.includes("projects") &&
+    !location.pathname.includes("about") &&
+    !location.pathname.includes("blog") &&
+    location.pathname !== "/";
+
+  return (
+    <>
+      {/* {!hideNavbar &&} */}
+      <NavBar />
+      <main>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={!isMobile ? <Home /> : <ProjectsList />} />
+          <Route path="/projects" element={<ProjectsList />} />
+          <Route path="/projects/:name" element={<ProjectData />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blogs />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+    </>
+  );
+};
+
+export default AppRoutes;

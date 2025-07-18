@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import classes from "../Project/ProjectData.module.css";
 import { projects } from "../../data/projects";
 import { useParams, useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { t } from "i18next";
 import i18n from "../../i18n";
 import useIsMobile from "../../hooks/useIsMobile";
 import ProjectDescription from "../../components/ProjectDescription/ProjectDescription";
+import NotFound from "../../components/NotFoundError/NotFound";
 
 const ProjectData = () => {
   const { name } = useParams<{ name: string }>();
@@ -18,9 +19,9 @@ const ProjectData = () => {
 
   const navigate = useNavigate();
 
-  if (!name) return <p></p>;
+  if (!name) return <NotFound />;
   const project = projects.find((e) => e.name === name);
-  if (!project) return <p>not found</p>;
+  if (!project) return <NotFound />;
 
   const handleClose = () => {
     navigate("/projects");
@@ -57,15 +58,15 @@ const ProjectData = () => {
       </div>
 
       <div className={classes["right-panel"]}>
-        {projects.map((project, index) => (
+        {project.galleries.map((project, index) => (
           <div
             key={index}
             onClick={() => !isMobile && openModal(index)}
             style={{}}
           >
             <img
-              src={project.src}
-              alt={project[`${lng}_name`]}
+              src={project}
+              alt={`gallery_${index}`}
               className={classes["right-image"]}
             />
           </div>
@@ -74,7 +75,7 @@ const ProjectData = () => {
 
       {isModalOpen && (
         <ProjectModal
-          images={projects.map((p) => p.src)}
+          images={project.galleries}
           currentIndex={currentImageIndex}
           onClose={closeModal}
           onNext={nextImage}

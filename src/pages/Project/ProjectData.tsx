@@ -39,12 +39,12 @@ const ProjectData = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % projects.length);
+    setCurrentImageIndex((prev) => (prev + 1) % project.galleries.length);
   };
 
   const prevImage = () => {
     setCurrentImageIndex(
-      (prev) => (prev - 1 + projects.length) % projects.length
+      (prev) => (prev - 1 + project.galleries.length) % project.galleries.length
     );
   };
 

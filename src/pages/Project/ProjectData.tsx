@@ -5,7 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import ProjectModal from "./ProjectModal";
 import { t } from "i18next";
 import i18n from "../../i18n";
-import useIsMobile from "../../hooks/useIsMobile";
+// import useIsMobile from "../../hooks/useIsMobile";
 import ProjectDescription from "../../components/ProjectDescription/ProjectDescription";
 import NotFound from "../../components/NotFoundError/NotFound";
 
@@ -14,7 +14,7 @@ const ProjectData = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const isMobile = useIsMobile();
+  // const isMobile = useIsMobile();
   const lng = i18n.language as "en" | "fa";
 
   const navigate = useNavigate();
@@ -61,7 +61,8 @@ const ProjectData = () => {
         {project.galleries.map((project, index) => (
           <div
             key={index}
-            onClick={() => !isMobile && openModal(index)}
+            // onClick={() => !isMobile && openModal(index)}
+            onClick={() => openModal(index)}
             style={{}}
           >
             <img

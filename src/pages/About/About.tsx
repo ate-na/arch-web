@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { aboutData } from "../../data/about";
 import classes from "../About/About.module.css";
+import parse from "html-react-parser";
 
 const About = () => {
   const { t, i18n } = useTranslation();
@@ -13,7 +14,7 @@ const About = () => {
     <section className={classes["about-wrapper"]}>
       <div className={classes["about-content"]}>
         <h2>{t("About")}</h2>
-        <p>{data.description}</p>
+        <p>{parse(data.description)}</p>
         <a href={`mailto:${data.email}`} className={classes.email}>
           {data.email}
         </a>
@@ -39,7 +40,9 @@ const About = () => {
           </div>
         ))}
       </div>
-      <img src={data.image} />
+      <div style={{ textAlign: "center" }}>
+        <img src={data.image} />
+      </div>
     </section>
   );
 };

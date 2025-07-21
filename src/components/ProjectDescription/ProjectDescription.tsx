@@ -3,6 +3,7 @@ import i18next, { t } from "i18next";
 import classes from "./ProjectDescription.module.css";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import type { ProjectDescription as ProjectDescriptionType } from "../../pages/Project/types";
+import i18n from "../../i18n";
 
 interface Props {
   projectData: ProjectDescriptionType;
@@ -35,8 +36,10 @@ const ProjectDescription: React.FC<Props> = ({ projectData }) => {
 
   const toggleExpanded = () => setExpanded((prev) => !prev);
 
-  const lang = i18next.language;
+  const lang = i18n.language;
   const isFarsi = lang.startsWith("fa");
+
+  console.log(lang, isFarsi, t("location"));
 
   const moreText = isFarsi ? "نمایش  بیشتر" : "Show More";
   const lessText = isFarsi ? "نمایش  کمتر" : "Show Less";
@@ -111,25 +114,27 @@ const ProjectDescription: React.FC<Props> = ({ projectData }) => {
           ))}
         </div>
 
-        <div className={classes["project-features"]}>
-          <h3 className={classes["section-title"]}>
-            {t("Unique features of the project")}
-          </h3>
-          <ul className={classes["feature-list"]}>
-            {projectData.features.map((feature, idx) => (
-              <li key={idx}>✔ {feature}</li>
-            ))}
-          </ul>
+        {projectData.features.length > 0 && (
+          <div className={classes["project-features"]}>
+            <h3 className={classes["section-title"]}>
+              {t("Unique features of the project")}
+            </h3>
+            <ul className={classes["feature-list"]}>
+              {projectData.features.map((feature, idx) => (
+                <li key={idx}>{feature}</li>
+              ))}
+            </ul>
 
-          {shouldShowToggle && expanded && (
-            <button
-              onClick={toggleExpanded}
-              className={classes["toggle-button"]}
-            >
-              <ChevronUp /> {lessText}
-            </button>
-          )}
-        </div>
+            {shouldShowToggle && expanded && (
+              <button
+                onClick={toggleExpanded}
+                className={classes["toggle-button"]}
+              >
+                <ChevronUp /> {lessText}
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

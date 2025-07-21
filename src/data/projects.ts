@@ -1,4 +1,4 @@
-import type { Project } from "../pages/Project/types";
+import type { Project, ProjectDescription } from "../pages/Project/types";
 
 const fa_projectData = {
   title: "ویلای مدرن کوهسار البرز",
@@ -429,6 +429,212 @@ const en_projectData_khaji = {
   ],
 };
 
+const kamraniehProjectEn: ProjectDescription = {
+  title: "A House for Sensory Perception",
+  subtitle: "Reviving a Kamraniyeh home for a non-visual experience",
+  location: "Kamraniyeh, Tehran",
+  area: "1000 sqm",
+  floors: 1,
+  style: "Restoration & Reinterpretation",
+  description: [
+    "Hidden within the historic fabric of Kamraniyeh lies a house that was once home to a blind woman — someone who experienced the house not with sight, but through her other senses. Reviving this place is not merely a physical renovation, but a reawakening of a lived experience — one centered on hearing, smelling, touching, and the feeling of anticipation.",
+    "The core concept in this project is the 'non-visual perception of space' — a spatial experience understood through alternative senses, with the 'corner of waiting' at its heart; a spot where this woman would sit daily, awaiting the return of her family. This point holds the house's emotional memory.",
+  ],
+  phases: [
+    {
+      title: "Tactile and Auditory Pathways",
+      points: [
+        "Circulation is designed based on floor and wall textures — from polished stone to textured wood, each surface conveys a different feeling.",
+        "At key points, sound-triggered systems activate subtle cues — the gentle flow of water, nostalgic melodies, or a soft bell as the main door opens.",
+      ],
+    },
+    {
+      title: "Light as a Guide, Not a Display",
+      points: [
+        "Lighting is designed not for aesthetic display, but for orientation and a sense of security.",
+        "Soft linear lights along edges and corners enhance spatial awareness and peace.",
+      ],
+    },
+    {
+      title: "Reimagining the Corner of Waiting",
+      points: [
+        "This space has been preserved and reinterpreted using warm materials and ambient sounds.",
+        "A distinct scent fills the area — a blend of wood, dried flowers, and lingering memory.",
+        "A fabric-textured bench and a window opening to the courtyard make it the emotional heart of the home.",
+      ],
+    },
+    {
+      title: "The Audible Courtyard",
+      points: [
+        "The courtyard was redesigned with natural sounds in mind: water trickles, rustling leaves, and birdsong.",
+        "Scented plants enhance the olfactory experience — a garden meant to be smelled and heard, not just seen.",
+      ],
+    },
+    {
+      title: "Human-Centered Furniture & Details",
+      points: [
+        "Furniture and architectural details are recognizable by touch — soft edges and inviting forms.",
+        "Every element is designed to convey its function and form through tactile interaction.",
+      ],
+    },
+  ],
+  features: [],
+};
+
+const kamraniehProjectFa: ProjectDescription = {
+  title: "خانه‌ای برای ادراک حسی",
+  subtitle: "باززنده‌سازی خانه‌ای در کامرانیه برای تجربه‌ای غیر بصری",
+  location: "کامرانیه، تهران",
+  area: "۱۰۰۰ متر مربع",
+  floors: 1,
+  style: "باززنده‌سازی بنا",
+  description: [
+    "در دل بافت قدیمی کامرانیه، عمارتی نهفته است که سال‌ها مأمن زنی نابینا بوده؛ زنی که با نبودِ دید، خانه را نه با چشم بلکه با سایر حواسش زیسته است. بازسازی این بنا، صرفاً نوسازی کالبدی نیست، بلکه احیای تجربه‌ای زیسته است — تجربه‌ای که شنیدن، بوییدن، لمس کردن و حس انتظار در مرکز آن قرار دارند.",
+    'در این پروژه، کانسپت اصلی "ادراک غیر بصری فضا" است؛ فضایی که از دریچه‌ی دیگر حواس درک می‌شود و در قلب آن، "کنج انتظار" جای گرفته؛ جایی از خانه که این زن هر روز در آن می‌نشسته و منتظر رسیدن اعضای خانواده می‌مانده. این نقطه، حافظه‌ی عاطفی خانه است.',
+  ],
+  phases: [
+    {
+      title: "مسیرهای لمسی و آوایی",
+      points: [
+        "سیرکولاسیون خانه بر اساس بافت‌های مختلف زیر پا و دیوار طراحی شده‌است؛ از سنگ‌های صیقلی تا چوب‌های بافت‌دار، هر مسیر حس متفاوتی منتقل می‌کند.",
+        "در نقاط کلیدی خانه، سیستم‌هایی طراحی شده که صداهای ظریفی را فعال می‌کنند — صدای ملایم آب، موسیقی‌های خاطره‌انگیز، یا حتی ناقوسی کوچک در هنگام باز شدن در اصلی.",
+      ],
+    },
+    {
+      title: "نور به عنوان راهنما، نه نمایشگر",
+      points: [
+        "نورپردازی‌ها، نه برای نمایش زیبایی بصری، بلکه برای جهت‌دهی و ایجاد حس امنیت طراحی شده‌اند.",
+        "نورهای خطی کم‌نور در لبه‌ها و کنج‌ها، حس جهت‌گیری و آرامش را تقویت می‌کنند.",
+      ],
+    },
+    {
+      title: "بازتعریف کنج انتظار",
+      points: [
+        "این فضا نه تنها حفظ شده، بلکه با استفاده از متریال‌های گرم و صداهای محیطی بازآفرینی شده است.",
+        "عطر خاصی در این فضا منتشر می‌شود — ترکیبی از چوب، گل‌های خشک و یادآور یک خاطره ماندگار.",
+        "نیمکتی با بافت پارچه‌ای خاص و پنجره‌ای که به حیاط باز می‌شود، آن را به نقطه‌ی عاطفی خانه تبدیل کرده است.",
+      ],
+    },
+    {
+      title: "حیاطِ شنیدنی",
+      points: [
+        "بازسازی حیاط با تمرکز بر اصوات طبیعی انجام شده است: صدای ریزش آب، خش‌خش برگ‌ها، و پرندگان.",
+        "استفاده از گیاهانی که رایحه‌ خاص دارند، تجربه بویایی را تقویت می‌کند — یک باغ برای بوییدن و شنیدن، نه فقط دیدن.",
+      ],
+    },
+    {
+      title: "مبلمان و جزئیات انسانی",
+      points: [
+        "مبلمان و جزئیات معماری با دست قابل شناسایی‌اند؛ لبه‌ها نرم و فرم‌ها دعوت‌کننده‌اند.",
+        "تمامی اجزا به‌گونه‌ای طراحی شده‌اند که لمس آن‌ها اطلاعاتی از فرم و عملکردشان منتقل کند.",
+      ],
+    },
+  ],
+  features: [],
+};
+
+const khajiProjectDescriptionFa: ProjectDescription = {
+  title: "پروژه طراحی داخلی هایپر مارکت خاجی",
+  subtitle: "فاز یک",
+  location: "تهران",
+  area: "۱۲۰۰ مترمربع",
+  style: "مینیمال صنعتی با تأکید بر نورپردازی محصول-محور",
+  description: [
+    'این طراحی با کانسپت "موزه‌ای از مصالح ساختمانی"، فضایی خنثی (Neutral Canvas) خلق کرده که در آن محصولات به عنوان آثار هنری نمایش داده می‌شوند.',
+    "سیستم نورپردازی سه‌لایه (Task-Accent-Ambient) با دمای رنگ متغیر (۲۷۰۰K برای چوب تا ۴۰۰۰K برای فلزات)، بافت و رنگ هر متریال را به دقت برجسته می‌نماید.",
+    "سقف بازشو (Exposed Ceiling) با شبکه‌ای از ریل‌های مغناطیسی، امکان تغییر پویای موقعیت اسپات‌لایت‌ها را براساس چیدمان محصول فراهم می‌آورد.",
+    "دیوارهای بتنی اکوستیک با پوشش میکروسمنت، همزمان هم زمینه‌ای خنثی برای نمایش محصولات است و هم بازتاب‌های صوتی فضای بزرگ را کنترل می‌کند.",
+  ],
+  phases: [
+    {
+      title: "سونوگرافی فضایی",
+      points: [
+        "نورپردازی تطبیقی:",
+        " اسپات‌لایت‌های هوشمند با قابلیت تنظیم زاویه ۳۶۰ درجه",
+        " سنسورهای حرکتی برای افزایش شدت نور در محدوده محصولات پرتناوب",
+        "گردش فضایی:",
+        "مسیر مارپیچی با عرض ۳.۵ متر برای دسترسی بهینه به تمام بخش‌ها",
+        "ایستگاه‌های مشاوره با میزهای نمایش تعاملی (Interactive Kiosks)",
+      ],
+    },
+    {
+      title: "جزئیات اجرایی کلیدی",
+      points: [
+        "ویترین‌های نمایش:",
+        "پایه‌های شیشه‌ای ضد UV با ضخامت ۱۲ میلی‌متر",
+        "قفسه‌های معلق از کابل‌های استیل ضدزنگ",
+        "کف‌پوش:",
+        "اپوکسی متالیک با خطوط راهنمای نورانی (Guided Lighting)",
+        "زون‌بندی رنگی براساس دسته محصولات (آبی برای سرویس بهداشتی، خاکستری برای مصالح ساختمانی)",
+      ],
+    },
+    {
+      title: "تکنولوژی‌های فروشگاهی",
+      points: [
+        "سیستم AR برای پیش‌نمایش محصولات در فضای واقعی مشتری",
+        "قفسه‌های RFID دار برای مدیریت هوشمند موجودی",
+        "دیوارهای ویدئویی ۴K برای نمایش نحوه نصب محصولات",
+      ],
+    },
+  ],
+  features: [
+    "تجربه مشتری: طراحی مسیر خرید براساس توالی منطقی پروژه‌های ساختمانی (از مصالح خام تا محصولات نهایی)",
+    "انعطاف‌پذیری: سیستم ماژولار قفسه‌بندی با قابلیت تغییر ابعاد در ۲۴ ساعت",
+    "پایداری: بازیافت ۱۰۰% نور توسط بازتابنده‌های سقفی",
+  ],
+};
+
+const khajiProjectDescriptionEn: ProjectDescription = {
+  title: "Interior Design Project for Khaji Hypermarket",
+  subtitle: "Phase One",
+  location: "Tehran",
+  area: "1,200 sqm",
+  style: "Industrial Minimalism with a Product-Focused Lighting Approach",
+  description: [
+    'This design, based on the concept of a "Museum of Building Materials", creates a neutral canvas where products are displayed as artworks.',
+    "A three-layer lighting system (Task–Accent–Ambient) with variable color temperatures (2700K for wood to 4000K for metals) highlights the texture and color of each material precisely.",
+    "An exposed ceiling with a grid of magnetic rails allows for dynamic repositioning of spotlights based on product layout.",
+    "Acoustic concrete walls with microcement coating serve both as a neutral display background and as a means of controlling sound reflections in the large space.",
+  ],
+  phases: [
+    {
+      title: "Spatial Sonography",
+      points: [
+        "Adaptive Lighting:",
+        "Smart spotlights with 360° adjustable angles",
+        "Motion sensors to boost lighting intensity in high-traffic product zones",
+        "Circulation Design:",
+        "A 3.5-meter-wide spiral path for optimal access to all sections",
+        "Consultation stations with interactive display kiosks",
+      ],
+    },
+    {
+      title: "Key Execution Details",
+      points: [
+        "Display Showcases:",
+        "UV-resistant glass stands, 12mm thick",
+        "Suspended shelves using stainless steel cables",
+        "Flooring:",
+        "Metallic epoxy with guided lighting lines",
+        "Color zoning based on product categories (blue for bathroom, gray for building materials)",
+      ],
+    },
+    {
+      title: "Retail Technologies",
+      points: [
+        "AR system for real-time product visualization in customer spaces",
+        "RFID-enabled shelving for smart inventory management",
+        "4K video walls displaying product installation methods",
+      ],
+    },
+  ],
+  features: [
+    "Customer Experience: A purchase journey designed around the logical sequence of construction projects (from raw materials to finished products)",
+    "Flexibility: Modular shelving system with adjustable dimensions within 24 hours",
+    "Sustainability: 100% light recycling using ceiling reflectors",
+  ],
+};
+
 export const projects: Project[] = [
   {
     id: 1,
@@ -436,13 +642,15 @@ export const projects: Project[] = [
     en_name: "Kamranieh Mansion",
     fa_name: "عمارت کامرانیه",
     src: "https://ik.imagekit.io/picwagmpd/images/1.webp?updatedAt=1752737814445",
-    en_description: en_projectData,
-    fa_description: fa_projectData,
+    en_description: kamraniehProjectEn,
+    fa_description: kamraniehProjectFa,
     galleries: [
-      "https://ik.imagekit.io/picwagmpd/images/1-1.webp",
-      "https://ik.imagekit.io/picwagmpd/images/1-2.webp",
+      "https://ik.imagekit.io/picwagmpd/images/1-6.webp",
+      "https://ik.imagekit.io/picwagmpd/images/1-5.webp",
       "https://ik.imagekit.io/picwagmpd/images/1-3.webp",
       "https://ik.imagekit.io/picwagmpd/images/1-4.webp",
+      "https://ik.imagekit.io/picwagmpd/images/1-2.webp",
+      "https://ik.imagekit.io/picwagmpd/images/1-1.webp",
     ],
   },
   {
@@ -466,15 +674,25 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    en_name: "Khaji Store",
-    name: "Khaji Store",
-    fa_name: "فروشگاه خواجی",
+    name: "Khaji P2 | Concept Store",
+    en_name: "Khaji P2 | Concept Store",
+    fa_name: "خاجی فاز دو | کانسپت استور",
     src: "https://ik.imagekit.io/picwagmpd/images/3.webp?updatedAt=1752737811295",
     en_description: en_projectData_khaji,
     fa_description: fa_projectData_khaji,
     galleries: [
-      "https://ik.imagekit.io/picwagmpd/images/5.webp",
-      "https://ik.imagekit.io/picwagmpd/images/1.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-1.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-2.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-3.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-4.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-5.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-6.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-7.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-8.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-9.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-10.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-11.webp",
+      "https://ik.imagekit.io/picwagmpd/images/3-12.webp",
     ],
   },
   {
@@ -510,6 +728,32 @@ export const projects: Project[] = [
       "https://ik.imagekit.io/picwagmpd/images/5-4.webp",
       "https://ik.imagekit.io/picwagmpd/images/5-5.webp",
       "https://ik.imagekit.io/picwagmpd/images/5-6.webp",
+    ],
+  },
+  {
+    id: 6,
+    name: "Khaji P1 | Facade",
+    en_name: "Khaji P1 | Facade",
+    fa_name: "خاجی فاز یک | نما",
+
+    fa_description: khajiProjectDescriptionFa,
+    en_description: khajiProjectDescriptionEn,
+    src: "https://ik.imagekit.io/picwagmpd/images/6.webp",
+    galleries: [
+      "https://ik.imagekit.io/picwagmpd/images/6-1.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-2.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-3.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-4.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-5.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-6.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-7.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-8.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-9.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-10.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-11.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-12.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-13.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-14.webp",
     ],
   },
 ];

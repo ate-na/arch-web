@@ -124,16 +124,13 @@ const ProjectDescription: React.FC<Props> = ({ projectData }) => {
                 <li key={idx}>{feature}</li>
               ))}
             </ul>
-
-            {shouldShowToggle && expanded && (
-              <button
-                onClick={toggleExpanded}
-                className={classes["toggle-button"]}
-              >
-                <ChevronUp /> {lessText}
-              </button>
-            )}
           </div>
+        )}
+
+        {shouldShowToggle && expanded && (
+          <button onClick={toggleExpanded} className={classes["toggle-button"]}>
+            <ChevronUp /> {lessText}
+          </button>
         )}
       </div>
     </section>

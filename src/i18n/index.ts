@@ -5,8 +5,8 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import en from "./en.json";
 import fa from "./fa.json";
 
-const hostname = window.location.hostname;
-const defaultLang = "fa";
+// const hostname = window.location.hostname;
+// const defaultLang = "fa";
 
 const savedLanguage = localStorage.getItem("i18nextLng");
 

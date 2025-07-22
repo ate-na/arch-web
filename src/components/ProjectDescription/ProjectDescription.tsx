@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import i18next, { t } from "i18next";
+import { t } from "i18next";
 import classes from "./ProjectDescription.module.css";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import type { ProjectDescription as ProjectDescriptionType } from "../../pages/Project/types";

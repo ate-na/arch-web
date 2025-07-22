@@ -35,7 +35,7 @@
   justify-content: space-between;
   height: 60vh;
   flex: 1;
-  min-width: 200px;
+  width: 300px;
   margin-right: 2rem;
 }
 
@@ -91,7 +91,7 @@
 .home-modal-right-side {
   display: flex;
   flex-direction: column;
-  min-width: 300px;
+  width: 450px;
 }
 .home-modal-right-side.fa {
   align-items: self-start;

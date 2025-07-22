@@ -136,3 +136,9 @@
     width: 0px;
   }
 }
+@media (hover: none) {
+  .right-image:hover {
+    width: 100% !important;
+    border-radius: 0 !important;
+  }
+}

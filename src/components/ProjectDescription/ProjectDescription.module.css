@@ -25,11 +25,10 @@
   text-align: justify;
   text-justify: inter-word;
   font-family: "YekanBakh", sans-serif;
-  /* اینا جلوی بریده‌بریده شدن رو می‌گیرن 👇 */
-  word-spacing: 0; /* فاصله بین کلمات صفر */
-  letter-spacing: 0; /* فاصله بین حروف صفر */
-  white-space: normal; /* نذار بشکنه خط بی‌دلیل */
-  word-break: break-word; /* بشکن فقط اگه کلمه خیلی درازه */
+  word-spacing: 0;
+  letter-spacing: 0;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .project-section-title {

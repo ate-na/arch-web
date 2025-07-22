@@ -78,6 +78,7 @@ const ProjectData = () => {
         <ProjectModal
           images={project.galleries}
           currentIndex={currentImageIndex}
+          setCurrentIndex={setCurrentImageIndex}
           onClose={closeModal}
           onNext={nextImage}
           onPrev={prevImage}

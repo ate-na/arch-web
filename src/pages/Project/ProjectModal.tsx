@@ -8,6 +8,7 @@ interface Props {
   onClose: () => void;
   onNext: () => void;
   onPrev: () => void;
+  setCurrentIndex: (index: number) => void; // اضافه شده برای تغییر currentIndex از داخل کامپوننت
 }
 
 const SWIPE_THRESHOLD = 50;
@@ -18,9 +19,11 @@ const ProjectModal: React.FC<Props> = ({
   onClose,
   onNext,
   onPrev,
+  setCurrentIndex,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isThumbnailScrolling, setIsThumbnailScrolling] = useState(false);
 
   const touchStartX = useRef<number | null>(null);
   const [touchMoveX, setTouchMoveX] = useState(0);
@@ -51,12 +54,16 @@ const ProjectModal: React.FC<Props> = ({
     };
   }, [onNext, onPrev]);
 
+  // بخش مربوط به تصویر بزرگ
+
   const onTouchStart = (e: React.TouchEvent) => {
+    if (isThumbnailScrolling) return;
     touchStartX.current = e.changedTouches[0].clientX;
     setTouchMoveX(0);
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
+    if (isThumbnailScrolling) return;
     if (touchStartX.current === null) return;
     const currentX = e.changedTouches[0].clientX;
     const deltaX = currentX - touchStartX.current;
@@ -64,6 +71,7 @@ const ProjectModal: React.FC<Props> = ({
   };
 
   const onTouchEnd = (e: React.TouchEvent) => {
+    if (isThumbnailScrolling) return;
     if (touchStartX.current === null) return;
     const endX = e.changedTouches[0].clientX;
     const deltaX = endX - touchStartX.current;
@@ -76,6 +84,16 @@ const ProjectModal: React.FC<Props> = ({
 
     setTouchMoveX(0);
     touchStartX.current = null;
+  };
+
+  // بخش مربوط به اسکرول نوار تصاویر کوچک
+
+  const handleThumbnailTouchStart = () => {
+    setIsThumbnailScrolling(true);
+  };
+
+  const handleThumbnailTouchEnd = () => {
+    setIsThumbnailScrolling(false);
   };
 
   return (
@@ -113,6 +131,26 @@ const ProjectModal: React.FC<Props> = ({
         <button className={classes.close} onClick={handleClose}>
           <X size={26} strokeWidth={2.5} />
         </button>
+
+        {/* نوار تصاویر کوچک برای موبایل */}
+        <div
+          className={classes.thumbnails}
+          onTouchStart={handleThumbnailTouchStart}
+          onTouchEnd={handleThumbnailTouchEnd}
+        >
+          {images.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`thumb-${index}`}
+              className={`${classes.thumbnail} ${
+                index === currentIndex ? classes.activeThumbnail : ""
+              }`}
+              onClick={() => setCurrentIndex(index)}
+              loading="lazy"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

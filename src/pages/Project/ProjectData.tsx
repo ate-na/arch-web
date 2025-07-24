@@ -51,7 +51,10 @@ const ProjectData = () => {
   return (
     <section className={classes["projects-project"]}>
       <div className={classes["left-panel"]}>
-        <ProjectDescription projectData={project[`${lng}_description`]} />
+        <ProjectDescription
+          projectData={project[`${lng}_description`]}
+          project={project}
+        />
         <button onClick={handleClose} className={classes["close-button"]}>
           {t("close X")}
         </button>

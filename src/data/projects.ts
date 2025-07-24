@@ -1,6 +1,6 @@
 import type { Project, ProjectDescription } from "../pages/Project/types";
 
-const fa_projectData = {
+export const kohesarProject: ProjectDescription = {
   title: "ویلای مدرن کوهسار البرز",
   subtitle: "تلفیق زندگی خانوادگی با معماری معاصر",
   location: "کوهسار، استان البرز",
@@ -8,113 +8,129 @@ const fa_projectData = {
   floors: 4,
   style: "مدرن مینیمال",
   description: [
-    "این پروژه با رویکرد معماری زمینه‌گرا و با الهام از خطوط افقی کوهستان‌های البرز، فرمی مدرن و یکپارچه خلق کرده است.",
+    'این پروژه با رویکرد "معماری زمینه‌گرا" (Contextual Architecture) و با الهام از خطوط افقی کوهستان‌های البرز، فرمی مدرن و یکپارچه خلق کرده است.',
     "حجم‌بندی پلکانی ساختمان نه‌تنها سلسله مراتب فضایی را تعریف می‌کند، بلکه با ایجاد سایه‌روشن‌های حساب‌شده، بازی نور طبیعی را در طول روز تنظیم می‌نماید.",
-    "استفاده از شبکه مدولار در پلان، انعطاف‌پذیری فضاها را برای تغییر کاربری در آینده ممکن ساخته...",
-    "طراحی پله‌های شناور با سازه مخفی، علاوه بر تأمین ایمنی کودکان، به عنوان عنصر مجسمه‌وار فضای داخلی عمل می‌کند.",
+    'استفاده از "شبکه مدولار" در پلان، انعطاف‌پذیری فضاها را برای تغییر کاربری در آینده ممکن ساخته، درحالی که دیالوگ بین مصالح خام (سنگ و چوب) با سطوح شیشه‌ای صیقلی، تقابلی جذاب از "زبری و نرمی" ایجاد کرده است.',
+    'طراحی پله‌های شناور با سازه مخفی، علاوه بر تأمین ایمنی کودکان، به عنوان "عنصر مجسمه‌وار" فضای داخلی عمل می‌کند.',
+    'این پروژه نمونه‌ای از "معماری پاسخگو" است که در آن هر جزئیات، از دستگیره درها تا طراحی آکوستیک سالن اجتماعات، براساس ریتم زندگی خانوادگی و اقلیم خاص کوهسار کالیبره شده است.',
   ],
   phases: [
     {
-      title: "مرحله شناخت",
+      title: "مرحله شناخت (Understanding Phase)",
       points: [
         "جلسات متعدد با کارفرما جهت شناسایی نیازهای خانواده ۶ نفره",
         "بررسی سایت پروژه و تحلیل دیدهای کوهستانی",
-        "مطالعه نمونه‌های موفق بین‌المللی",
+        "مطالعه نمونه‌های موفق بین‌المللی در طراحی ویلاهای خانوادگی",
       ],
     },
     {
-      title: "ایده‌پردازی و اسکیس‌های اولیه",
+      title: "ایده‌پردازی و اسکیس‌های اولیه (Conceptual Design)",
       points: [
-        "توسعه کانسپت تلفیق طبیعت با مدرنیته در قالب ۳ طرح اولیه",
-        "انتخاب نهایی طرح با محوریت: سلسله مراتب فضایی عمودی، حریم خصوصی، بهینه‌سازی دید",
+        'توسعه کانسپت "تلفیق طبیعت با مدرنیته" در قالب ۳ طرح اولیه',
+        "انتخاب نهایی طرح با محوریت:",
+        "سلسله مراتب فضایی عمودی",
+        "ایجاد حریم‌های خصوصی متنوع",
+        "بهینه‌سازی دید به کوهستان",
       ],
     },
     {
-      title: "طراحی جزئیات",
+      title: "طراحی جزئیات (Design Development)",
       points: [
-        "مدلسازی ۳بعدی با Revit، Lumion، Vray",
-        "انتخاب مصالح نما: سنگ، چوب ترمو / کف: پارکت مهندسی با عایق صوتی",
-        "طراحی نورپردازی هوشمند با کنترل دیجیتال",
+        "مدلسازی ۳بعدی با نرم‌افزار Revit + Lumion + Vray",
+        "انتخاب مصالح:",
+        "نما: سنگ تراورتن و گرانیت + چوب ترمو (مقاوم در برابر آبوهوای کوهستانی)",
+        "کف: پارکت مهندسی با عایق‌صوتی برای طبقات خواب",
+        "طراحی نورپردازی هوشمند با سیستم کنترل دیجیتال",
       ],
     },
     {
-      title: "مستندات اجرایی",
+      title: "مستندات اجرایی (Construction Documents)",
       points: [
-        "تهیه نقشه‌های سازه‌ای ویژه منطقه",
-        "دیتیل‌های اختصاصی برای جکوزی معلق و شومینه مدرن",
+        "تهیه نقشه‌های سازه‌ای با محاسبات ویژه منطقه کوهسار",
+        "طراحی دیتیل‌های اختصاصی برای:",
+        "جکوزی معلق با سیستم ضدزلزله",
+        "شومینه مدرن مرکزی با تهویه هوشمند",
       ],
     },
     {
-      title: "نظارت بر اجرا",
+      title: "نظارت بر اجرا (Supervision)",
       points: [
-        "همکاری با پیمانکار منتخب برای اجرای دقیق",
-        "کنترل کیفی مصالح نما و فریم‌لس",
+        "همکاری با پیمانکار منتخب برای اجرای دقیق جزئیات",
+        "کنترل کیفی مصالح نما و نمای شیشه‌ای فریم‌لس",
       ],
     },
   ],
   features: [
-    "سیستم طبقه‌بندی هوشمند",
-    "راهکارهای امنیتی برای کودکان",
-    "مدیریت انرژی: پنجره‌های دوجداره + عایق‌بندی با پشم سنگ",
+    "سیستم طبقه‌بندی هوشمند: تفکیک فضاهای پرسرصدا (سالن اجتماعات) از مناطق آرام (سوئیت‌ها)",
+    "راهکارهای امنیتی: طراحی پله‌های دوار با حفاظ نامرئی برای کودکان",
+    "مدیریت انرژی: پنجره‌های دو جداره + عایق‌بندی سقف با پشم سنگ",
   ],
 };
 
-const en_projectData = {
+export const kohesarProject_en: ProjectDescription = {
   title: "Modern Villa in Kouhsar, Alborz",
-  subtitle: "Blending Family Living with Contemporary Architecture",
+  subtitle: "Blending Family Life with Contemporary Architecture",
   location: "Kouhsar, Alborz Province",
-  area: "1200 square meters",
+  area: "1,200 square meters",
   floors: 4,
-  style: "Modern Minimal",
+  style: "Minimal Modern",
   description: [
-    "This project, following a contextual architecture approach and inspired by the horizontal lines of the Alborz mountains, creates a modern and unified form.",
-    "The terraced volume not only defines spatial hierarchy but also orchestrates natural light through calculated shading.",
-    "A modular grid in the plan allows future spatial flexibility and adaptive reuse.",
-    "The floating staircase with a hidden structure ensures children's safety while acting as a sculptural interior element.",
+    'This project, rooted in "Contextual Architecture", draws inspiration from the horizontal lines of the Alborz mountains to create a unified and modern form.',
+    "The stepped massing not only defines spatial hierarchy but also creates calculated shadows that regulate natural light throughout the day.",
+    'Using a "modular grid" in the plan allows for flexible space usage in the future. The interplay between raw materials (stone and wood) and polished glass surfaces creates a compelling contrast between "roughness and softness".',
+    'Floating stairs with hidden structure enhance child safety while acting as a "sculptural element" in the interior.',
+    'This is an example of "responsive architecture" where every detail—from door handles to the acoustic design of the gathering hall—is calibrated to the rhythm of family life and Kouhsar’s climate.',
   ],
   phases: [
     {
       title: "Understanding Phase",
       points: [
-        "Multiple meetings with the client to identify the needs of a 6-member family",
-        "Site analysis and mountain view studies",
-        "Research on successful international family villa designs",
+        "Multiple meetings with the client to understand the needs of a 6-person family",
+        "Site analysis and mountain view evaluation",
+        "Case study review of successful international family villas",
       ],
     },
     {
-      title: "Conceptual Design & Sketches",
+      title: "Conceptual Design",
       points: [
-        "Developing the concept of blending nature and modernity in 3 initial proposals",
-        "Final design selected based on: vertical spatial hierarchy, privacy layers, and optimized mountain views",
+        'Developing the "Nature meets Modernity" concept with 3 initial proposals',
+        "Final design selected based on:",
+        "Vertical spatial hierarchy",
+        "Various privacy zones",
+        "Optimized mountain views",
       ],
     },
     {
       title: "Design Development",
       points: [
         "3D modeling using Revit, Lumion, and Vray",
-        "Material selection: façade (stone, thermo-treated wood), flooring (engineered parquet with acoustic insulation)",
-        "Smart lighting design with digital control systems",
+        "Material selection:",
+        "Facade: Travertine & Granite + Thermowood (weather-resistant)",
+        "Flooring: Engineered wood + acoustic insulation for bedrooms",
+        "Smart lighting design with digital control system",
       ],
     },
     {
       title: "Construction Documents",
       points: [
-        "Structural drawings with special calculations for the Kouhsar area",
-        "Custom details for a suspended jacuzzi and modern fireplace",
+        "Structural plans tailored for Kouhsar’s seismic zone",
+        "Custom details for:",
+        "Suspended Jacuzzi with anti-earthquake system",
+        "Central modern fireplace with smart ventilation",
       ],
     },
     {
       title: "Supervision",
       points: [
-        "Collaboration with the selected contractor for accurate detail execution",
-        "Quality control of façade materials and frameless glass",
+        "Collaboration with selected contractor for detail accuracy",
+        "Quality control of facade materials and frameless glazing",
       ],
     },
   ],
   features: [
-    "Smart spatial zoning: separating loud and quiet areas",
-    "Child safety solutions: spiral stairs with invisible barriers",
-    "Energy management: double-glazed windows + roof insulation with rock wool",
+    "Smart zoning system: separates loud spaces (gathering hall) from quiet zones (suites)",
+    "Child safety: Spiral staircase with invisible guard",
+    "Energy efficiency: Double-glazed windows + rock wool roof insulation",
   ],
 };
 
@@ -182,12 +198,12 @@ const fa_projectData_noshahr = {
   area: "۷۵۰ مترمربع",
   style: "مدرن اکولوژیک",
   description: [
-    'این پروژه با رویکرد "معماری زمینه‌گرای اکولوژیک" و با خوانشی نوین از بوم‌گرایی مازندران، فرمی ارگانیک و سیال خلق کرده است.',
-    "حجم‌بندی افقی ساختمان با الهام از لایه‌بندی جنگل‌های هیرکانی، با ایجاد سطوح شناور و پل‌های ارتباطی شفاف، دیالوگی مدرن با توپوگرافی سایت برقرار می‌کند.",
-    'پنجره‌های تمام‌قد به مثابه "چارچوب‌های زنده" مرز بین فضای داخلی و اکوسیستم جنگلی را مخدوش می‌کنند.',
-    "سقف‌های شیبدار با زاویه ۲۵ درجه، هم بهره‌وری نور شمالی را بهینه کرده و هم آب باران را به سیستم جمع‌آوری هدایت می‌کنند.",
-    'استفاده از "سلسله مراتب حریم‌ها" در پلان، از فضای نیمه‌عمومی استخر تا سوئیت‌های اختصاصی، بازتابی از نظم درختان جنگل است.',
-    "ترکیب تکنولوژی‌های سبز مانند پنل‌های فتوولتائیک و مصالح بومی چون چوب آلوار و سنگ ماسه‌ای محلی، این پروژه را به نمونه‌ای پیشرو از معماری پایدار نسل چهارم تبدیل کرده است.",
+    'این پروژه با رویکرد "معماری زمینه‌گرای اکولوژیک" (Ecological Contextualism) و با خوانشی نوین از بوم‌گرایی مازندران، فرمی ارگانیک و سیال خلق کرده است.',
+    "حجم‌بندی افقی ساختمان با الهام از لایه‌بندی جنگل‌های هیرکانی، با ایجاد سطوح شناور (Cantilevered Volumes) و پل‌های ارتباطی شفاف، دیالوگی مدرن با توپوگرافی سایت برقرار می‌نماید.",
+    'پنجره‌های تمام‌قد به مثابه "چارچوب‌های زنده"(Living Frames)، مرز بین فضای داخلی و اکوسیستم جنگلی را مخدوش کرده‌اند.',
+    "سقف‌های شیبدار با زاویه ۲۵ درجه، هم‌زمان هم بهره‌وری از نور شمال را بهینه می‌کنند و هم آب باران را به سیستم جمع‌آوری هدایت می‌نمایند.",
+    'استفاده از "سلسله مراتب حریم‌ها" (Hierarchy of Privacy) در پلان، از فضای نیمه‌عمومی استخر تا سوئیت‌های اختصاصی، بازتابی از نظم درختان جنگل است.',
+    'این پروژه با ترکیب تکنولوژی‌های سبز (مانند پنل‌های فتوولتائیک یکپارچه) و مصالح بومی (چوب آلوار، سنگ ماسه‌ای محلی)، نمونه‌ای پیشرو از "معماری پایدار نسل چهارم" در منطقه به شمار می‌رود.',
   ],
   phases: [
     {
@@ -645,12 +661,12 @@ export const projects: Project[] = [
     en_description: kamraniehProjectEn,
     fa_description: kamraniehProjectFa,
     galleries: [
+      "https://ik.imagekit.io/picwagmpd/images/1-1.webp",
+      "https://ik.imagekit.io/picwagmpd/images/1-2.webp",
+      "https://ik.imagekit.io/picwagmpd/images/1-3.webp",
       "https://ik.imagekit.io/picwagmpd/images/1-6.webp",
       "https://ik.imagekit.io/picwagmpd/images/1-5.webp",
-      "https://ik.imagekit.io/picwagmpd/images/1-3.webp",
       "https://ik.imagekit.io/picwagmpd/images/1-4.webp",
-      "https://ik.imagekit.io/picwagmpd/images/1-2.webp",
-      "https://ik.imagekit.io/picwagmpd/images/1-1.webp",
     ],
   },
   {
@@ -659,8 +675,8 @@ export const projects: Project[] = [
     en_name: "Kordan Villa",
     fa_name: "ویلای مدرن کوهسار البرز",
     src: "https://ik.imagekit.io/picwagmpd/images/2.webp?updatedAt=1752737815182",
-    en_description: en_projectData,
-    fa_description: fa_projectData,
+    en_description: kohesarProject_en,
+    fa_description: kohesarProject,
     galleries: [
       "https://ik.imagekit.io/picwagmpd/images/2-1.webp",
       "https://ik.imagekit.io/picwagmpd/images/2-2.webp",
@@ -674,9 +690,9 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    name: "Khaji P2 | Concept Store",
-    en_name: "Khaji P2 | Concept Store",
-    fa_name: "خاجی فاز دو | کانسپت استور",
+    name: "Khaji P1 | Facade",
+    en_name: "Khaji P1 | Facade",
+    fa_name: "خاجی فاز یک | نما",
     src: "https://ik.imagekit.io/picwagmpd/images/3.webp?updatedAt=1752737811295",
     en_description: en_projectData_khaji,
     fa_description: fa_projectData_khaji,
@@ -711,6 +727,7 @@ export const projects: Project[] = [
       "https://ik.imagekit.io/picwagmpd/images/4-5.webp",
       "https://ik.imagekit.io/picwagmpd/images/4-6.webp",
       "https://ik.imagekit.io/picwagmpd/images/4-7.webp",
+      "https://ik.imagekit.io/picwagmpd/images/4-8.webp",
     ],
   },
   {
@@ -732,10 +749,10 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    name: "Khaji P1 | Facade",
-    en_name: "Khaji P1 | Facade",
-    fa_name: "خاجی فاز یک | نما",
 
+    name: "Khaji P2 | Concept Store",
+    en_name: "Khaji P2 | Concept Store",
+    fa_name: "خاجی فاز دو | کانسپت استور",
     fa_description: khajiProjectDescriptionFa,
     en_description: khajiProjectDescriptionEn,
     src: "https://ik.imagekit.io/picwagmpd/images/6.webp",
@@ -754,6 +771,7 @@ export const projects: Project[] = [
       "https://ik.imagekit.io/picwagmpd/images/6-12.webp",
       "https://ik.imagekit.io/picwagmpd/images/6-13.webp",
       "https://ik.imagekit.io/picwagmpd/images/6-14.webp",
+      "https://ik.imagekit.io/picwagmpd/images/6-15.webp",
     ],
   },
 ];

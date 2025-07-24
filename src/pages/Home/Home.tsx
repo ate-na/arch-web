@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import HomeModal from "../Home/HomeModal";
 import classes from "./Home.module.css";
 import { projects } from "../../data/projects";
+import ProjectHelmetList from "../Project/ProjectHelmetList";
 
 interface Project {
   name: string;
@@ -90,75 +91,78 @@ const Home: React.FC = () => {
   };
 
   return (
-    <main className={classes["home-main"]}>
-      <section ref={containerRef} className={classes["home-section"]}>
-        {projects.map((project, index) => (
-          <div
-            className={classes["home-projects"]}
-            key={index}
-            ref={(el) => {
-              imageRefs.current[index] = el;
-            }}
-            onMouseEnter={(e) => handleMouseEnter(e, index)}
-            onMouseMove={(e) => handleMouseMove(e, index)}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              zIndex: activeIndex === index ? 10 : 1,
-            }}
-          >
-            <motion.div
-              onClick={() => setSelectedProject(project)}
-              animate={{
-                x: activeIndex === index ? x.get() : 0,
-                y: activeIndex === index ? y.get() : 0,
-                scaleX: activeIndex === index ? scale.x : 1,
-                scaleY: activeIndex === index ? scale.y : 1,
-                opacity: activeIndex === index ? 1 : 0.1,
+    <>
+      <ProjectHelmetList />
+      <main className={classes["home-main"]}>
+        <section ref={containerRef} className={classes["home-section"]}>
+          {projects.slice(0, 5).map((project, index) => (
+            <div
+              className={classes["home-projects"]}
+              key={index}
+              ref={(el) => {
+                imageRefs.current[index] = el;
               }}
+              onMouseEnter={(e) => handleMouseEnter(e, index)}
+              onMouseMove={(e) => handleMouseMove(e, index)}
+              onMouseLeave={handleMouseLeave}
               style={{
-                position: "relative",
-                zIndex: activeIndex === index ? 10 : 2,
-                cursor: "pointer",
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 20,
+                zIndex: activeIndex === index ? 10 : 1,
               }}
             >
-              <img
-                src={project.src}
-                alt={`img-${index}`}
-                style={{
-                  display: "block",
-                  pointerEvents: "none",
+              <motion.div
+                onClick={() => setSelectedProject(project)}
+                animate={{
+                  x: activeIndex === index ? x.get() : 0,
+                  y: activeIndex === index ? y.get() : 0,
+                  scaleX: activeIndex === index ? scale.x : 1,
+                  scaleY: activeIndex === index ? scale.y : 1,
+                  opacity: activeIndex === index ? 1 : 0.1,
                 }}
-              />
-            </motion.div>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setSelectedProject(project);
-              }}
-              className={classes["home-projects-title"]}
-              style={{
-                fontWeight: activeIndex === index ? "bold" : "normal",
-              }}
-            >
-              {lang === "fa" ? project.fa_name : project.en_name}
-            </a>
-          </div>
-        ))}
-      </section>
-      {selectedProject && (
-        <HomeModal
-          src={selectedProject.src}
-          name={selectedProject.name}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
-    </main>
+                style={{
+                  position: "relative",
+                  zIndex: activeIndex === index ? 10 : 2,
+                  cursor: "pointer",
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 20,
+                }}
+              >
+                <img
+                  src={project.src}
+                  alt={`img-${index}`}
+                  style={{
+                    display: "block",
+                    pointerEvents: "none",
+                  }}
+                />
+              </motion.div>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedProject(project);
+                }}
+                className={classes["home-projects-title"]}
+                style={{
+                  fontWeight: activeIndex === index ? "bold" : "normal",
+                }}
+              >
+                {lang === "fa" ? project.fa_name : project.en_name}
+              </a>
+            </div>
+          ))}
+        </section>
+        {selectedProject && (
+          <HomeModal
+            src={selectedProject.src}
+            name={selectedProject.name}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
+      </main>
+    </>
   );
 };
 

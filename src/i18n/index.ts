@@ -24,14 +24,15 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    lng: "fa",
+    fallbackLng: "fa",
+    supportedLngs: ["fa", "en"],
+    interpolation: {
+      escapeValue: false,
+    },
     resources: {
       en: { translation: en },
       fa: { translation: fa },
-    },
-    lng: "fa",
-    fallbackLng: "fa",
-    interpolation: {
-      escapeValue: false,
     },
   });
 

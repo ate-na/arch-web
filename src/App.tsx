@@ -9,9 +9,12 @@ function App() {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const dir = i18n.language === "fa" ? "rtl" : "ltr";
-    document.documentElement.dir = dir;
-  }, [i18n.language]);
+    const isEnglish = location.pathname.startsWith("/en");
+    i18n.changeLanguage(isEnglish ? "en" : "fa");
+
+    document.documentElement.lang = isEnglish ? "en" : "fa";
+    document.documentElement.dir = isEnglish ? "ltr" : "rtl";
+  }, [location.pathname]);
 
   return (
     <div className="container" lang={i18n.language}>

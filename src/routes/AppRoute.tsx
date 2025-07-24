@@ -25,6 +25,13 @@ const AppRoutes: FC<AppRoutesProps> = ({ isMobile }) => {
           <Route path="/projects/:name" element={<ProjectData />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blogs />} />
+
+          <Route path="/en" element={!isMobile ? <Home /> : <ProjectsList />} />
+          <Route path="/en/projects" element={<ProjectsList />} />
+          <Route path="/en/projects/:name" element={<ProjectData />} />
+          <Route path="/en/about" element={<About />} />
+          <Route path="/en/blog" element={<Blogs />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

@@ -3,9 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import classes from "../Button/LiquidToggleButton.module.css";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LiquidToggleButton = () => {
   const { i18n } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
   const savedLanguage = i18n.language?.toLocaleUpperCase();
 
   const [lang, setLang] = useState<"EN" | "FA">(
@@ -13,8 +16,21 @@ const LiquidToggleButton = () => {
   );
 
   const toggle = () => {
-    setLang(() => (lang === "EN" ? "FA" : "EN"));
-    i18n.changeLanguage(lang === "EN" ? "fa" : "en");
+    const isEnglish = lang === "EN";
+    const newLang = isEnglish ? "fa" : "en";
+    i18n.changeLanguage(newLang);
+    setLang(isEnglish ? "FA" : "EN");
+
+    const path = location.pathname;
+    let newPath;
+
+    if (isEnglish) {
+      newPath = path.replace(/^\/en/, "") || "/";
+    } else {
+      newPath = path.startsWith("/") ? `/en${path}` : `/en/${path}`;
+    }
+
+    navigate(newPath);
   };
   const color = lang === "EN" ? "#cccccc" : "#63606";
 

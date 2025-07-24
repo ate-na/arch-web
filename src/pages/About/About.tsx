@@ -29,16 +29,18 @@ const About = () => {
             );
           })}
         </div>
-        {data.workers.map((e, index) => (
-          <div className={classes.worker} key={index}>
-            <p>
-              <span className={classes["name-worker"]}>{e.name} ,</span>
-              <span className={classes["description-worker"]}>
-                {e.description}
-              </span>
-            </p>
-          </div>
-        ))}
+        {data?.workers &&
+          data.workers.length > 0 &&
+          data.workers.map((e, index) => (
+            <div className={classes.worker} key={index}>
+              <p>
+                <span className={classes["name-worker"]}>{e.name} ,</span>
+                <span className={classes["description-worker"]}>
+                  {e.description}
+                </span>
+              </p>
+            </div>
+          ))}
       </div>
       <div style={{ textAlign: "center" }}>
         <img src={data.image} />

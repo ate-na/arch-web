@@ -1,6 +1,6 @@
 .wrapper {
   height: 75vh;
-  width: 100vw;
+  /* width: 100vw; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,8 +47,11 @@
 }
 
 @media (max-width: 480px) {
+  .wrapper {
+    height: 65vh;
+  }
   .card {
-    width: 95vw;
+    /* width: 95vw; */
     aspect-ratio: 16 / 9;
     margin-right: 1rem;
   }

@@ -1,7 +1,7 @@
 .about-wrapper {
   display: grid;
   max-width: 1500px;
-  margin: 100px auto 100px;
+  /* margin: 100px auto 100px; */
   grid-template-columns: 1fr 2fr;
   grid-gap: 100px;
   padding: 30px 100px;

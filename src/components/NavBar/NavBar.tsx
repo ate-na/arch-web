@@ -7,6 +7,8 @@ import useIsMobile from "../../hooks/useIsMobile";
 const Header = () => {
   const { t } = useTranslation();
   const isMobile = useIsMobile();
+  const isHome =
+    location.pathname === "/" || location.pathname.includes("projects");
 
   return (
     <header className={classes["main-header"]}>
@@ -19,7 +21,11 @@ const Header = () => {
         <div className={classes.logo}>
           <NavLink to={isMobile ? "/projects" : "/"}>
             <img style={{ width: "80px" }} src={"/thatLab.png"} />
-            <p className={classes.title}>{t("THAT DESIGN OFFICE")}</p>
+            {isHome ? (
+              <h1 className={classes.title}>{t("THAT DESIGN OFFICE")}</h1>
+            ) : (
+              <p className={classes.title}>{t("THAT DESIGN OFFICE")}</p>
+            )}
           </NavLink>
         </div>
         <div className={classes["nav-btn"]}>

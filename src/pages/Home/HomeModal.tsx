@@ -4,6 +4,7 @@ import classes from "../Home/HomeModal.module.css";
 import { useTranslation } from "react-i18next";
 import { projects } from "../../data/projects";
 import type { Project } from "../Project/types";
+import { getSlug } from "../../util/help";
 
 interface HomeModalProps {
   src: string;
@@ -12,7 +13,9 @@ interface HomeModalProps {
 }
 
 const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
-  const foundProject = projects.find((p) => p.name === name && p.src === src);
+  const foundProject = projects.find(
+    (p) => getSlug(p.name) === getSlug(name) && p.src === src
+  );
 
   const fallbackProject: Project = {
     id: 0,
@@ -93,7 +96,7 @@ const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
                 <strong>{t("Design style")}:</strong> {desc.style}
               </li>
             </ul>
-            <Link to={`/projects/${selectedProject.name}`}>
+            <Link to={`/projects/${getSlug(selectedProject.name)}`}>
               <button type="button">{t("Learn more +")}</button>
             </Link>
           </div>

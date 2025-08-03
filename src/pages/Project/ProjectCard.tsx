@@ -3,6 +3,7 @@ import type { Project } from "./types";
 import classes from "../Project/ProjectsList.module.css";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import { getSlug } from "../../util/help";
 
 interface Props {
   project: Project;
@@ -14,7 +15,7 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
   const lang = i18n.language as "fa" | "en";
   return (
     <div className="border p-4">
-      <Link to={`/projects/${project.name}`}>
+      <Link to={`/projects/${getSlug(project.name)}`}>
         <li className={classes.item} key={project[`${lang}_name`] + index}>
           <div className={classes["label-row"]}>
             <span className={classes["project-name"]}>

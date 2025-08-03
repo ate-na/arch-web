@@ -44,6 +44,8 @@ const ProjectHelmetList = () => {
     })),
   };
 
+  console.log("structuredData================", structuredData);
+
   return (
     <>
       <Helmet>

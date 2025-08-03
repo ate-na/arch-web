@@ -8,6 +8,7 @@ import i18n from "../../i18n";
 // import useIsMobile from "../../hooks/useIsMobile";
 import ProjectDescription from "../../components/ProjectDescription/ProjectDescription";
 import NotFound from "../../components/NotFoundError/NotFound";
+import { getSlug } from "../../util/help";
 
 const ProjectData = () => {
   const { name } = useParams<{ name: string }>();
@@ -20,7 +21,7 @@ const ProjectData = () => {
   const navigate = useNavigate();
 
   if (!name) return <NotFound />;
-  const project = projects.find((e) => e.name === name);
+  const project = projects.find((e) => getSlug(e.name) === name);
   if (!project) return <NotFound />;
 
   const handleClose = () => {

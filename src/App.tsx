@@ -1,25 +1,35 @@
-import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
-import useIsMobile from "./hooks/useIsMobile";
+import { useTranslation } from "react-i18next";
+
+import { ContactPopupProvider } from "./store/ContactPopupProvider";
+import ContactPopupUpdater from "./store/ContactPopupUpdater";
+import ContactPopup from "./components/Popup/ContactPopup";
 import AppRoutes from "./routes/AppRoute";
+import useIsMobile from "./hooks/useIsMobile";
+import PhonePopup from "./components/Popup/PhonePopup";
 
 function App() {
   const { i18n } = useTranslation();
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const isEnglish = location.pathname.startsWith("/en");
+    const isEnglish = window.location.pathname.startsWith("/en");
     i18n.changeLanguage(isEnglish ? "en" : "fa");
 
     document.documentElement.lang = isEnglish ? "en" : "fa";
     document.documentElement.dir = isEnglish ? "ltr" : "rtl";
-  }, [location.pathname]);
+  }, [window.location.pathname, i18n]);
 
   return (
     <div className="container" lang={i18n.language}>
       <BrowserRouter>
-        <AppRoutes isMobile={isMobile} />
+        <ContactPopupProvider>
+          <ContactPopupUpdater />
+          <AppRoutes isMobile={isMobile} />
+          <ContactPopup />
+          <PhonePopup />
+        </ContactPopupProvider>
       </BrowserRouter>
     </div>
   );

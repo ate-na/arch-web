@@ -1,0 +1,125 @@
+.popupWrapper {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  z-index: 800;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+.popupVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.popupHidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+}
+
+.glassPopup {
+  background: rgba(129, 129, 129, 0.199);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255 255 255 / 0.3);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #222;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  user-select: none;
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.popTitle {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: -0.1rem;
+}
+
+.link {
+  color: #222;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.iconGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconGroup a {
+  color: #222;
+  transition: transform 0.2s, color 0.3s;
+}
+
+.iconGroup a:hover {
+  color: #007bff;
+  transform: scale(1.15);
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.fadeOutDown {
+  animation: fadeOutDown 0.4s ease forwards;
+}

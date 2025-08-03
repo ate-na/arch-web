@@ -1,0 +1,59 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 6, 6, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+}
+
+.modal {
+  position: fixed;
+  top: 40%;
+  left: 11%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.858);
+  border-radius: 12px;
+  padding: 20px 30px;
+  width: 60vw;
+  max-width: 320px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.2);
+  z-index: 1000;
+  text-align: center;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #555;
+}
+
+.title {
+  margin-top: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.phoneNumber {
+  margin: 12px 0 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -6,6 +6,7 @@ import HomeModal from "../Home/HomeModal";
 import classes from "./Home.module.css";
 import { projects } from "../../data/projects";
 import ProjectHelmetList from "../Project/ProjectHelmetList";
+// import ContactPopup from "../../components/Popup/ContactPopup";
 
 interface Project {
   name: string;
@@ -162,6 +163,7 @@ const Home: React.FC = () => {
           />
         )}
       </main>
+      {/* <ContactPopup /> */}
     </>
   );
 };

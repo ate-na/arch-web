@@ -18,19 +18,26 @@ const About = () => {
         <div className={classes["about-content"]}>
           <h1>{t("About")}</h1>
           <p>{parse(data.description)}</p>
-          <a href={`mailto:${data.email}`} className={classes.email}>
-            {data.email}
-          </a>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {data.email.map((e) => (
+              <a href={`mailto:${e}`} className={classes.email}>
+                {e}
+              </a>
+            ))}
+          </div>
 
-          <div className={classes.phones}>
-            {data.phones.map((e, index) => {
-              return (
-                <span key={index}>
-                  <a href={`tel:${e}`}>{e}</a>
-                  <br />
-                </span>
-              );
-            })}
+          <div className={classes["phone-list"]}>
+            <p style={{ margin: "0" }}>{t("phoneNumber")}:</p>
+            <div className={classes.phones}>
+              {data.phones.map((e, index) => {
+                return (
+                  <span key={index}>
+                    <a href={`tel:${e}`}>{e}</a>
+                    <br />
+                  </span>
+                );
+              })}
+            </div>
           </div>
           {data?.workers &&
             data.workers.length > 0 &&

@@ -8,7 +8,7 @@ interface Props {
   onClose: () => void;
   onNext: () => void;
   onPrev: () => void;
-  setCurrentIndex: (index: number) => void; // اضافه شده برای تغییر currentIndex از داخل کامپوننت
+  setCurrentIndex: (index: number) => void;
 }
 
 const SWIPE_THRESHOLD = 50;
@@ -54,8 +54,6 @@ const ProjectModal: React.FC<Props> = ({
     };
   }, [onNext, onPrev]);
 
-  // بخش مربوط به تصویر بزرگ
-
   const onTouchStart = (e: React.TouchEvent) => {
     if (isThumbnailScrolling) return;
     touchStartX.current = e.changedTouches[0].clientX;
@@ -85,8 +83,6 @@ const ProjectModal: React.FC<Props> = ({
     setTouchMoveX(0);
     touchStartX.current = null;
   };
-
-  // بخش مربوط به اسکرول نوار تصاویر کوچک
 
   const handleThumbnailTouchStart = () => {
     setIsThumbnailScrolling(true);
@@ -132,7 +128,6 @@ const ProjectModal: React.FC<Props> = ({
           <X size={26} strokeWidth={2.5} />
         </button>
 
-        {/* نوار تصاویر کوچک برای موبایل */}
         <div
           className={classes.thumbnails}
           onTouchStart={handleThumbnailTouchStart}

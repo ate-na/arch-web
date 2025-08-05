@@ -46,7 +46,7 @@ const About = () => {
             ))}
         </div>
         <div style={{ textAlign: "center" }}>
-          <img src={data.image} />
+          <img src={data.image} alt="about" />
         </div>
       </section>
     </>

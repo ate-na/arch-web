@@ -5,13 +5,8 @@ import { useTranslation } from "react-i18next";
 import HomeModal from "../Home/HomeModal";
 import classes from "./Home.module.css";
 import { projects } from "../../data/projects";
-import ProjectHelmetList from "../Project/ProjectHelmetList";
-
-interface Project {
-  name: string;
-  src: string;
-  id: number;
-}
+import MainHelmet from "../Project/MainHelmet";
+import { useModal } from "../../context/ModalContext";
 
 const Home: React.FC = () => {
   const { i18n } = useTranslation();
@@ -20,7 +15,8 @@ const Home: React.FC = () => {
   const imageRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  // const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { selectedProject, setSelectedProject } = useModal();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -92,7 +88,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <ProjectHelmetList />
+      <MainHelmet isProjectPage={false} />
       <main className={classes["home-main"]}>
         <section ref={containerRef} className={classes["home-section"]}>
           {projects.slice(0, 5).map((project, index) => (

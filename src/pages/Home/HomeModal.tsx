@@ -87,10 +87,10 @@ const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
                 <strong>{t("location")}:</strong> {desc.location}
               </li>
               <li>
-                <strong>{t("metraz")}:</strong> {desc.area}
+                <strong>{t("metraz")}:</strong> {desc.area || "-"}
               </li>
               <li>
-                <strong>{t("Number of floors")}:</strong> {desc.floors}
+                <strong>{t("Number of floors")}:</strong> {desc?.floors || "-"}
               </li>
               <li>
                 <strong>{t("Design style")}:</strong> {desc.style}
@@ -103,7 +103,7 @@ const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
         </div>
 
         <div className={classes["home-modal-projects-list"]}>
-          {projects.map((project, index) => (
+          {projects.slice(0, 5).map((project, index) => (
             <a
               key={index}
               href="#"

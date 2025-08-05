@@ -3,9 +3,11 @@ import classes from "../NavBar/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useIsMobile from "../../hooks/useIsMobile";
+import { useModal } from "../../context/ModalContext";
 
 const Header = () => {
   const { t } = useTranslation();
+  const { selectedProject, setSelectedProject } = useModal();
   const isMobile = useIsMobile();
   const isHome =
     location.pathname === "/" || location.pathname.includes("projects");
@@ -19,8 +21,15 @@ const Header = () => {
       )}
       <div className={classes["header-container"]}>
         <div className={classes.logo}>
-          <NavLink to={isMobile ? "/projects" : "/"}>
-            <img style={{ width: "80px" }} src={"/thatLab.png"} />
+          <NavLink
+            onClick={() => selectedProject && setSelectedProject(null)}
+            to={isMobile ? "/projects" : "/"}
+          >
+            <img
+              style={{ width: "80px" }}
+              src={"/thatLab.png"}
+              alt={t("THAT DESIGN OFFICE")}
+            />
             {isHome ? (
               <h1 className={classes.title}>{t("THAT DESIGN OFFICE")}</h1>
             ) : (

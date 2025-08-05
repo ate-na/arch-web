@@ -112,10 +112,11 @@ const ProjectDescription: React.FC<Props> = ({ projectData, project }) => {
             <strong>📍 {t("location")}:</strong> {projectData.location}
           </li>
           <li>
-            <strong>📐 {t("metraz")}:</strong> {projectData.area}
+            <strong>📐 {t("metraz")}:</strong> {projectData.area || "-"}
           </li>
           <li>
-            <strong>🏗 {t("Number of floors")}:</strong> {projectData.floors}
+            <strong>🏗 {t("Number of floors")}:</strong>
+            {projectData?.floors || "-"}
           </li>
           <li>
             <strong>🎨 {t("Design style")}:</strong> {projectData.style}

@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "../Project/ProjectData.module.css";
 import { projects } from "../../data/projects";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import ProjectModal from "./ProjectModal";
 import { t } from "i18next";
 import i18n from "../../i18n";
@@ -19,6 +19,13 @@ const ProjectData = () => {
   const lng = i18n.language as "en" | "fa";
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const hasModal = params.get("modal") === "gallery";
+    setIsModalOpen(hasModal);
+  }, [location.search]);
 
   if (!name) return <NotFound />;
   const project = projects.find((e) => getSlug(e.name) === name);
@@ -32,11 +39,17 @@ const ProjectData = () => {
     setCurrentImageIndex(index);
     setIsModalOpen(true);
     document.body.style.overflow = "hidden"; // disable scroll
+    const params = new URLSearchParams(location.search);
+    params.set("modal", "gallery");
+    navigate(`${location.pathname}?${params.toString()}`, { replace: false });
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     document.body.style.overflow = "auto"; // re-enable scroll
+    const params = new URLSearchParams(location.search);
+    params.delete("modal");
+    navigate(`${location.pathname}?${params.toString()}`, { replace: true });
   };
 
   const nextImage = () => {

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import useIsMobile from "./hooks/useIsMobile";
 import AppRoutes from "./routes/AppRoute";
+import { ModalProvider } from "./context/ModalContext";
 
 function App() {
   const { i18n } = useTranslation();
@@ -19,7 +20,9 @@ function App() {
   return (
     <div className="container" lang={i18n.language}>
       <BrowserRouter>
-        <AppRoutes isMobile={isMobile} />
+        <ModalProvider>
+          <AppRoutes isMobile={isMobile} />
+        </ModalProvider>
       </BrowserRouter>
     </div>
   );

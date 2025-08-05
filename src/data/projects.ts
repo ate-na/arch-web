@@ -661,12 +661,12 @@ export const projects: Project[] = [
     en_description: kamraniehProjectEn,
     fa_description: kamraniehProjectFa,
     galleries: [
-      "https://ik.imagekit.io/picwagmpd/images/1-1.webp",
-      "https://ik.imagekit.io/picwagmpd/images/1-2.webp",
-      "https://ik.imagekit.io/picwagmpd/images/1-3.webp",
-      "https://ik.imagekit.io/picwagmpd/images/1-6.webp",
-      "https://ik.imagekit.io/picwagmpd/images/1-5.webp",
-      "https://ik.imagekit.io/picwagmpd/images/1-4.webp",
+      "https://ik.imagekit.io/picwagmpd/images/7-3.webp",
+      "https://ik.imagekit.io/picwagmpd/images/7-2.webp",
+      "https://ik.imagekit.io/picwagmpd/images/7-1.webp",
+      "https://ik.imagekit.io/picwagmpd/images/7-4.webp",
+      "https://ik.imagekit.io/picwagmpd/images/7-5.webp",
+      "https://ik.imagekit.io/picwagmpd/images/7-6.webp",
     ],
   },
   {

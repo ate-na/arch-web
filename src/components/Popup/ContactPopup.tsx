@@ -5,14 +5,21 @@ import { useTranslation } from "react-i18next";
 
 import styles from "./ContactPopup.module.css";
 import { useContactPopup } from "../../store/useContactPopup";
+import { aboutData } from "../../data/about";
+import { formatWithSpacesFromRight } from "../../util/help";
 
 const ContactPopup = () => {
   const { currentPage, wasManuallyClosed, setWasManuallyClosed } =
     useContactPopup();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const phoneNumber = aboutData.filter((e) => e.lang === i18n.language)[0]
+    .phones[0];
+  const email = aboutData.filter((e) => e.lang === i18n.language)[0].email[0];
+  const whatsApp = aboutData.filter((e) => e.lang === i18n.language)[0]
+    .whatsApp;
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 600);
@@ -60,21 +67,21 @@ const ContactPopup = () => {
           className={styles.popTitle}
           style={i18n.language === "en" ? { marginBottom: "0.5rem" } : {}}
         >
-          {i18n.language === "fa" ? "تماس با ما" : "Contact Us"}
+          {t("Contact Us")}
         </p>
         <a
           className={styles.link}
           style={i18n.language === "en" ? { marginBottom: "0.3rem" } : {}}
-          href="tel:+989123456789"
+          href={`tel:${phoneNumber}`}
         >
-          021-91017779
+          {formatWithSpacesFromRight(phoneNumber, i18n.language)}
         </a>
         <div className={styles.iconGroup}>
-          <a href="mailto:info@example.com" title="ایمیل">
+          <a href={`mailto:${email}`} title="ایمیل">
             <Mail size={22} strokeWidth={1.5} color="#275ccfff" />
           </a>
           <a
-            href="https://wa.me/989123456789"
+            href={`https://wa.me/${whatsApp}`}
             target="_blank"
             rel="noreferrer"
             title="واتساپ"

@@ -49,11 +49,11 @@ export const projects = [
   },
 ];
 
+export const getSlug = (name) => name.trim().toLowerCase().replace(/\s+/g, "-");
+
 const BASE_URL = "https://thatlab.art";
 const LANGS = ["", "/en"];
 const staticRoutes = ["/", "/projects", "/about", "/blog"];
-
-const getSlug = (name) => name.trim().toLowerCase().replace(/\s+/g, "-");
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -74,6 +74,7 @@ for (const lang of LANGS) {
   }
 
   for (const project of projects) {
+    console.log("called", `${lang}/projects/${getSlug(project.name)}`);
     sitemapStream.write({
       url: `${lang}/projects/${getSlug(project.name)}`,
       lastmod: new Date(),

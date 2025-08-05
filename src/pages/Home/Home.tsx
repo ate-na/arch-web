@@ -5,14 +5,8 @@ import { useTranslation } from "react-i18next";
 import HomeModal from "../Home/HomeModal";
 import classes from "./Home.module.css";
 import { projects } from "../../data/projects";
-import ProjectHelmetList from "../Project/ProjectHelmetList";
-// import ContactPopup from "../../components/Popup/ContactPopup";
-
-interface Project {
-  name: string;
-  src: string;
-  id: number;
-}
+import MainHelmet from "../Project/MainHelmet";
+import { useHomeModal } from "../../store/useHomeModal";
 
 const Home: React.FC = () => {
   const { i18n } = useTranslation();
@@ -21,7 +15,8 @@ const Home: React.FC = () => {
   const imageRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  // const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { selectedProject, setSelectedProject } = useHomeModal();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -93,8 +88,8 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <ProjectHelmetList />
-      <main className={classes["home-main"]}>
+      <MainHelmet isProjectPage={false} />
+      <section className={classes["home-main"]}>
         <section ref={containerRef} className={classes["home-section"]}>
           {projects.slice(0, 5).map((project, index) => (
             <div
@@ -162,7 +157,7 @@ const Home: React.FC = () => {
             onClose={() => setSelectedProject(null)}
           />
         )}
-      </main>
+      </section>
       {/* <ContactPopup /> */}
     </>
   );

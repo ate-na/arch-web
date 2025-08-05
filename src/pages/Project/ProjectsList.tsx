@@ -1,12 +1,12 @@
 import classes from "../Project/ProjectsList.module.css";
 import ProjectCard from "./ProjectCard";
 import { projects } from "../../data/projects";
-import ProjectHelmetList from "./ProjectHelmetList";
+import MainHelmet from "./MainHelmet";
 
 const ProjectsList = () => {
   return (
     <>
-      <ProjectHelmetList />
+      <MainHelmet isProjectPage={true} />
       <div className={classes["projects-wrapper"]}>
         <ul className={classes.list}>
           {projects.map((e, index) => (

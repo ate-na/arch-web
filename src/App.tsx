@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
 import { ContactPopupProvider } from "./store/ContactPopupProvider";
 import ContactPopupUpdater from "./store/ContactPopupUpdater";
 import ContactPopup from "./components/Popup/ContactPopup";
 import AppRoutes from "./routes/AppRoute";
 import useIsMobile from "./hooks/useIsMobile";
 import PhonePopup from "./components/Popup/PhonePopup";
+import { HomeModalProvider } from "./store/HomeModalProvider";
 
 function App() {
   const { i18n } = useTranslation();
@@ -26,7 +26,9 @@ function App() {
       <BrowserRouter>
         <ContactPopupProvider>
           <ContactPopupUpdater />
-          <AppRoutes isMobile={isMobile} />
+          <HomeModalProvider>
+            <AppRoutes isMobile={isMobile} />
+          </HomeModalProvider>
           <ContactPopup />
           <PhonePopup />
         </ContactPopupProvider>

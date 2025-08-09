@@ -65,10 +65,10 @@ const PhonePopupModal = ({ isOpen, onClose }: Props) => {
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
               >
-                <FaWhatsapp size={28} color="#25D366" />
+                <FaWhatsapp size={28} strokeWidth={1.5} color="#25D366" />
               </a>
               <a href={`mailto:${email}`} aria-label="Email">
-                <Mail size={22} strokeWidth={1.5} color="#275ccfff" />
+                <Mail size={28} strokeWidth={1.5} color="#275ccfff" />
               </a>
             </div>
           </motion.div>

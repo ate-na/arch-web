@@ -22,7 +22,7 @@ const MainHelmet: React.FC<Props> = ({ isProjectPage }) => {
         : "ThatLab, a professional architectural and interior design studio",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+98-xxx-xxx-xxxx",
+      telephone: "+2191017779",
       contactType: "customer service",
       areaServed: "IR",
     },

@@ -35,7 +35,7 @@
   justify-content: space-between;
   height: 60vh;
   flex: 1;
-  width: 300px;
+  width: 500px;
   margin-right: 2rem;
 }
 
@@ -44,7 +44,9 @@
   font-weight: 600;
   margin-bottom: 10px;
 }
-
+.home-modal-right-side {
+  margin-left: 4rem;
+}
 .home-modal-left-side button,
 .home-modal-right-side button {
   cursor: pointer;

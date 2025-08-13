@@ -40,7 +40,7 @@ const PhonePopup = () => {
     <>
       {visible && (
         <div className={styles.bubble} onClick={() => setModalOpen(true)}>
-          <FiPhone size={25} color="#555" />
+          <FiPhone size={35} color="#555" />
         </div>
       )}
 

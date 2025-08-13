@@ -90,6 +90,7 @@ const Home: React.FC = () => {
     <>
       <MainHelmet isProjectPage={false} />
       <section className={classes["home-main"]}>
+        <h1 style={{ display: "none" }}>دفترطراحی دت</h1>
         <section ref={containerRef} className={classes["home-section"]}>
           {projects.slice(0, 5).map((project, index) => (
             <div

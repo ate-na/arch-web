@@ -109,17 +109,32 @@ const ProjectDescription: React.FC<Props> = ({ projectData, project }) => {
 
         <ul className={classes["project-specs"]}>
           <li>
-            <strong>📍 {t("location")}:</strong> {projectData.location}
+            <span className={classes.icon}>📍</span>
+            <span className={classes.text}>
+              <span className={classes.label}>{t("location")}:</span>{" "}
+              {projectData.location}
+            </span>
           </li>
           <li>
-            <strong>📐 {t("metraz")}:</strong> {projectData.area || "-"}
+            <span className={classes.icon}>📐</span>
+            <span className={classes.text}>
+              <span className={classes.label}>{t("metraz")}:</span>{" "}
+              {projectData.area || "-"}
+            </span>
           </li>
           <li>
-            <strong>🏗 {t("Number of floors")}:</strong>
-            {projectData?.floors || "-"}
+            <span className={classes.icon}>🏗</span>
+            <span className={classes.text}>
+              <span className={classes.label}>{t("Number of floors")}:</span>{" "}
+              {projectData?.floors || "-"}
+            </span>
           </li>
           <li>
-            <strong>🎨 {t("Design style")}:</strong> {projectData.style}
+            <span className={classes.icon}>🎨</span>
+            <span className={classes.text}>
+              <span className={classes.label}>{t("Design style")}:</span>{" "}
+              {projectData.style}
+            </span>
           </li>
         </ul>
 
@@ -150,35 +165,39 @@ const ProjectDescription: React.FC<Props> = ({ projectData, project }) => {
           }}
         >
           <div className={classes["project-phases"]}>
-            <h3 className={classes["section-title"]}>
-              {t("The design process from idea to implementation")}
-            </h3>
-            {projectData.phases.map((phase, idx) => (
-              <div key={idx} className={classes["phase"]}>
-                <h4 className={classes["phase-title"]}>{`${idx + 1}. ${
-                  phase.title
-                }`}</h4>
-                <ul className={classes["phase-list"]}>
-                  {phase.points.map((point, i) => (
-                    <li key={i}>{point}</li>
+            {projectData.phases.length > 0 && (
+              <h3 className={classes["section-title"]}>
+                {t("The design process from idea to implementation")}
+              </h3>
+            )}
+            {projectData.phases.length > 0 &&
+              projectData.phases.map((phase, idx) => (
+                <div key={idx} className={classes["phase"]}>
+                  <h4 className={classes["phase-title"]}>{`${idx + 1}. ${
+                    phase.title
+                  }`}</h4>
+                  <ul className={classes["phase-list"]}>
+                    {phase.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+          </div>
+
+          {projectData.features.length > 0 &&
+            projectData.features.length > 0 && (
+              <div className={classes["project-features"]}>
+                <h3 className={classes["section-title"]}>
+                  {t("Unique features of the project")}
+                </h3>
+                <ul className={classes["feature-list"]}>
+                  {projectData.features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
                   ))}
                 </ul>
               </div>
-            ))}
-          </div>
-
-          {projectData.features.length > 0 && (
-            <div className={classes["project-features"]}>
-              <h3 className={classes["section-title"]}>
-                {t("Unique features of the project")}
-              </h3>
-              <ul className={classes["feature-list"]}>
-                {projectData.features.map((feature, idx) => (
-                  <li key={idx}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+            )}
 
           {shouldShowToggle && expanded && (
             <button

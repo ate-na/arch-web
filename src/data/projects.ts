@@ -600,6 +600,46 @@ const khajiProjectDescriptionFa: ProjectDescription = {
   ],
 };
 
+// Persian
+export const hakimMedicalComplexFa: ProjectDescription = {
+  title: "مجتمع درمانی حکیم",
+  subtitle: "    ",
+  location: "اندیشه فاز یک، استان تهران",
+  area: "-",
+  floors: undefined,
+  style: "پویانمایی معماری",
+  description: [
+    "نمای این ساختمان بر پایه اصول معماری مدرن شکل گرفته و با استفاده از ریتم افقی قوی، حس کشیدگی و تداوم را القا می‌کند.",
+    "نوارهای ممتد شیشه‌ای و فریم‌های فلزی روشن، علاوه بر ایجاد کنتراست زیبا، نور طبیعی را به حداکثر می‌رسانند.",
+    "گوشه‌های منحنی ساختمان، جریان بصری نرم و پیوسته ایجاد کرده و از خشکی فرم‌های کاملاً زاویه‌دار می‌کاهند.",
+    "استفاده از رنگ‌های خنثی مانند سفید و خاکستری، به نمای ساختمان ظاهری مینیمال و پاکیزه داده که متناسب با کاربری درمانی است.",
+    "ترکیب متریال شیشه و فلز، حس تکنولوژی و معاصر بودن را تقویت کرده و همزمان شفافیت و سبکی نما را به نمایش می‌گذارد.",
+    "این طراحی، توازن میان عملکرد، زیبایی و هویت معمارانه را در نما به خوبی برقرار کرده است.",
+  ],
+  phases: [],
+  features: [],
+};
+
+// English
+const hakimMedicalComplexEn: ProjectDescription = {
+  title: "Hakim Medical Complex",
+  subtitle: "Facade",
+  location: "Andisheh Phase 1, Tehran Province",
+  area: "-",
+  floors: undefined,
+  style: "Kinetic Architecture",
+  description: [
+    "The facade of this building is based on modern architectural principles and uses a strong horizontal rhythm to convey a sense of elongation and continuity.",
+    "Continuous glass strips and light metal frames not only create a beautiful contrast but also maximize natural light.",
+    "The building’s curved corners create a smooth and continuous visual flow, softening the rigidity of entirely angular forms.",
+    "The use of neutral colors such as white and gray gives the facade a clean and minimal appearance, suitable for its medical function.",
+    "The combination of glass and metal materials enhances the sense of technology and modernity while showcasing transparency and lightness.",
+    "This design successfully balances function, beauty, and architectural identity in the facade.",
+  ],
+  phases: [],
+  features: [],
+};
+
 const khajiProjectDescriptionEn: ProjectDescription = {
   title: "Interior Design Project for Khaji Hypermarket",
   subtitle: "Phase One",
@@ -648,6 +688,56 @@ const khajiProjectDescriptionEn: ProjectDescription = {
     "Customer Experience: A purchase journey designed around the logical sequence of construction projects (from raw materials to finished products)",
     "Flexibility: Modular shelving system with adjustable dimensions within 24 hours",
     "Sustainability: 100% light recycling using ceiling reflectors",
+  ],
+};
+
+// Persian
+export const buildingTerraceFa: ProjectDescription = {
+  title: "تراس ساختمان پنج",
+  subtitle: "",
+  location: "تهران، ایران",
+  area: "240 متر مربع",
+  floors: undefined,
+  style: "مدرن مینیمال",
+  description: [
+    "طراحی این تراس با هدف ایجاد تنوع فضایی و شکستن یکنواختی مرسوم تراس‌ها انجام شده است.",
+    "به جای چینش یکدست نشیمن در پیرامون فضا، بخش‌های مختلف با کاربری‌های متفاوت تعریف شده‌اند.",
+    "استفاده خلاقانه از اختلاف ارتفاع فلاورباکس‌ها، ریتم و پویایی بصری ایجاد کرده و مسیر حرکت کاربر را هدایت می‌کند.",
+    "ترکیب فضاهای سبز، نشیمن‌های راحت و المان‌های هنری، حس دعوت‌کنندگی و آرامش را تقویت کرده است.",
+    "این رویکرد، تراس را از یک فضای جانبی ساده به یک تجربه فضایی کامل و زنده ارتقا داده است.",
+  ],
+  phases: [],
+  features: [
+    "خطوط ساده و احجام خالص بدون تزئینات اضافه",
+    "پالت رنگی طبیعی و خنثی (بژ، خاکی، کرم) که با سبز گیاهان و رنگ عناصر تزئینی (مثل مجسمه گیلاس) ترکیب شده",
+    "استفاده از متریال‌های طبیعی و باکیفیت مثل سنگ برای کف و دیواره‌ها",
+    "تقارن و هندسه دقیق در جانمایی فلاورباکس‌ها، مبلمان و سایه‌بان‌ها",
+    "ترکیب عملکرد و زیبایی به گونه‌ای که هر المان (مثل فلاورباکس یا آتشدان) هم کارکردی مشخص و هم جلوه بصری داشته باشد",
+  ],
+};
+
+// English
+export const buildingTerraceEn: ProjectDescription = {
+  title: "Building Terrace Five",
+  subtitle: "",
+  location: "Tehran, Iran",
+  area: "240 m²",
+  floors: undefined,
+  style: "Modern Minimal",
+  description: [
+    "This terrace was designed with the goal of creating spatial diversity and breaking the monotony typical of terraces.",
+    "Instead of arranging seating uniformly around the perimeter, different sections with distinct functions were defined.",
+    "The creative use of varying flower box heights introduces rhythm and visual dynamism, guiding user movement.",
+    "A combination of greenery, comfortable seating, and artistic elements enhances the sense of invitation and tranquility.",
+    "This approach transforms the terrace from a simple auxiliary space into a complete and vibrant spatial experience.",
+  ],
+  phases: [],
+  features: [
+    "Simple lines and pure forms without excessive ornamentation",
+    "A natural and neutral color palette (beige, earthy, cream) combined with the green of plants and the colors of decorative elements (such as the cherry sculpture)",
+    "Use of high-quality natural materials such as stone for flooring and walls",
+    "Precise symmetry and geometry in the placement of flower boxes, furniture, and canopies",
+    "A blend of function and aesthetics so that each element (such as a flower box or fire pit) has both a specific function and visual appeal",
   ],
 };
 
@@ -755,7 +845,7 @@ export const projects: Project[] = [
     fa_name: "خاجی فاز دو | کانسپت استور",
     fa_description: khajiProjectDescriptionFa,
     en_description: khajiProjectDescriptionEn,
-    src: "https://ik.imagekit.io/picwagmpd/images/6.webp",
+    src: "https://ik.imagekit.io/picwagmpd/images/khaji.webp",
     galleries: [
       "https://ik.imagekit.io/picwagmpd/images/6-1.webp",
       "https://ik.imagekit.io/picwagmpd/images/6-2.webp",
@@ -772,6 +862,43 @@ export const projects: Project[] = [
       "https://ik.imagekit.io/picwagmpd/images/6-13.webp",
       "https://ik.imagekit.io/picwagmpd/images/6-14.webp",
       "https://ik.imagekit.io/picwagmpd/images/6-15.webp",
+    ],
+  },
+  {
+    id: 7,
+    name: "Hakim Medical Complex",
+    en_name: "Hakim Medical Complex",
+    fa_name: "مجتمع درمانی حکیم | نما",
+    fa_description: hakimMedicalComplexFa,
+    en_description: hakimMedicalComplexEn,
+    src: "https://ik.imagekit.io/picwagmpd/images/7.jpg",
+    galleries: [
+      "https://ik.imagekit.io/picwagmpd/images/10-1.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/10-2.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/10-3.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/10-4.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/10-5.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/10-6.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/10-7.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/10-8.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/10-9.jpg",
+    ],
+  },
+  {
+    id: 8,
+    name: "Building Five – Terrace",
+    en_name: "Building Five – Terrace",
+    fa_name: "تراس ساختمان پنج",
+    fa_description: buildingTerraceFa,
+    en_description: buildingTerraceEn,
+    src: "https://ik.imagekit.io/picwagmpd/images/9-6.png",
+    galleries: [
+      "https://ik.imagekit.io/picwagmpd/images/9-1.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/9-2.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/9-3.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/9-4.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/9-5.jpg",
+      "https://ik.imagekit.io/picwagmpd/images/9-6.png",
     ],
   },
 ];

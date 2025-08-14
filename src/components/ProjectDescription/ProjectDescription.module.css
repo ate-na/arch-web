@@ -70,10 +70,14 @@
 
 .project-specs {
   list-style: none;
-  padding: 0;
+  padding: 10px;
   margin: 0;
   display: grid;
   row-gap: 0.5rem;
+}
+
+.project-description {
+  margin-bottom: 10px;
 }
 
 .project-specs li {
@@ -172,6 +176,6 @@
     cursor: pointer;
     padding: 0.5rem 0 0;
     margin-bottom: 0.5rem;
-    margin-top: -1rem;
+    /* margin-top: -1rem; */
   }
 }

@@ -78,7 +78,7 @@
 
 .project-specs li {
   display: grid;
-  grid-template-columns: 2rem 1fr; /* icon | label + value */
+  grid-template-columns: 1.5rem 1fr; /* icon | label + value */
   align-items: center;
 }
 

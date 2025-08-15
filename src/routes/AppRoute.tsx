@@ -18,7 +18,7 @@ const AppRoutes: FC<AppRoutesProps> = ({ isMobile }) => {
     <>
       <NavBar />
       <main>
-        <ScrollToTop />
+        <ScrollToTop smooth />
         <Routes>
           <Route path="/" element={!isMobile ? <Home /> : <ProjectsList />} />
           <Route path="/projects" element={<ProjectsList />} />

@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import NavBar from "../components/NavBar/NavBar";
-import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import Home from "../pages/Home/Home";
 import ProjectsList from "../pages/Project/ProjectsList";
 import ProjectData from "../pages/Project/ProjectData";
@@ -18,7 +17,7 @@ const AppRoutes: FC<AppRoutesProps> = ({ isMobile }) => {
     <>
       <NavBar />
       <main>
-        <ScrollToTop smooth />
+        {/* <ScrollToTop smooth /> */}
         <Routes>
           <Route path="/" element={!isMobile ? <Home /> : <ProjectsList />} />
           <Route path="/projects" element={<ProjectsList />} />

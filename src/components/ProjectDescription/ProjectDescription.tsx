@@ -26,6 +26,7 @@ const ProjectDescription: React.FC<Props> = ({ projectData, project }) => {
       setIsMobile(window.innerWidth <= 600);
     };
 
+    window.scrollTo(0, 0);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

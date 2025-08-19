@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import type { Project } from "./types";
 import classes from "../Project/ProjectsList.module.css";
 import { t } from "i18next";
@@ -13,9 +13,18 @@ interface Props {
 const ProjectCard: React.FC<Props> = ({ project, index }) => {
   const { i18n } = useTranslation();
   const lang = i18n.language as "fa" | "en";
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    console.log("handleClick", window.scrollY.toString());
+    sessionStorage.setItem("scrollPosition", window.scrollY.toString());
+    navigate(`/projects/${getSlug(project.name)}`);
+  };
+
   return (
     <div className="border p-4">
-      <Link to={`/projects/${getSlug(project.name)}`}>
+      <li onClick={handleClick}>
         <li className={classes.item} key={project[`${lang}_name`] + index}>
           <div className={classes["label-row"]}>
             <span className={classes["project-name"]}>
@@ -31,7 +40,7 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
             <img src={project.src} alt={project[`${lang}_name`]} />
           </div>
         </li>
-      </Link>
+      </li>
     </div>
   );
 };

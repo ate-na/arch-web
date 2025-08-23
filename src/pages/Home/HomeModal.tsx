@@ -87,7 +87,7 @@ const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
                 <strong>{t("location")}:</strong> {desc.location}
               </li>
               <li>
-                <strong>{t("metraz")}:</strong> {desc.area || "-"}
+                <strong>{t("area")}:</strong> {desc.area || "-"}
               </li>
               <li>
                 <strong>{t("Number of floors")}:</strong> {desc?.floors || "-"}

@@ -77,14 +77,17 @@ const ContactPopup = () => {
           {formatWithSpacesFromRight(phoneNumber, i18n.language)}
         </a>
         <div className={styles.iconGroup}>
-          <a href={`mailto:${email}`} title="ایمیل">
+          <a
+            href={`mailto:${email}`}
+            title={i18n.language === "fa" ? "ایمیل" : "Email"}
+          >
             <Mail size={22} strokeWidth={1.5} color="#275ccfff" />
           </a>
           <a
             href={`https://wa.me/${whatsApp}`}
             target="_blank"
             rel="noreferrer"
-            title="واتساپ"
+            title={i18n.language === "fa" ? "واتساپ" : "Whatsapp"}
           >
             <FaWhatsapp size={22} strokeWidth={1.5} color="#25D366" />
           </a>

@@ -95,3 +95,30 @@
     text-align: center;
   }
 }
+
+@media (min-width: 760px) {
+  .image-wrapper img {
+    width: 717px;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+@media (min-width: 820px) {
+  .image-wrapper img {
+    width: 752px;
+  }
+}
+
+@media (min-width: 850px) {
+  .image-wrapper img {
+    width: 785px;
+  }
+}
+
+@media (min-width: 910px) {
+  .image-wrapper img {
+    width: 855px;
+  }
+}

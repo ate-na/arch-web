@@ -181,3 +181,11 @@
     left: -10px;
   }
 }
+
+@media (min-width: 760px) {
+  .thumbnails {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+  }
+}

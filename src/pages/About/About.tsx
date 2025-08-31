@@ -3,11 +3,13 @@ import { aboutData } from "../../data/about";
 import classes from "../About/About.module.css";
 import parse from "html-react-parser";
 import AboutPageHelmet from "./AboutPageHelmet";
+import Loading from "../../components/Loading/Loading";
 
 const About = () => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
+  return <Loading />;
   const data = aboutData.find((e) => e.lang === lang);
   if (!data) return null;
 

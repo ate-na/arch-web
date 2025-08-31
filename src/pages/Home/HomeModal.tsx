@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "../Home/HomeModal.module.css";
 import { useTranslation } from "react-i18next";
-import { projects } from "../../data/projects";
 import type { Project } from "../Project/types";
 import { getSlug } from "../../util/help";
+import { useProjects } from "../../hooks/useProject";
+import Loading from "../../components/Loading/Loading";
 
 interface HomeModalProps {
   src: string;
@@ -13,52 +14,20 @@ interface HomeModalProps {
 }
 
 const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
+  const { projects, loading } = useProjects();
   const foundProject = projects.find(
-    (p) => getSlug(p.name) === getSlug(name) && p.src === src
+    (p) => getSlug(p.mainTitle) === getSlug(name) && p.src === src
   );
-
-  const fallbackProject: Project = {
-    id: 0,
-    name: "Unknown",
-    en_name: "Unknown",
-    fa_name: "نامشخص",
-    src: "",
-    en_description: {
-      title: "",
-      subtitle: "",
-      location: "",
-      area: "",
-      floors: 0,
-      style: "",
-      description: [],
-      phases: [],
-      features: [],
-    },
-    fa_description: {
-      title: "",
-      subtitle: "",
-      location: "",
-      area: "",
-      floors: 0,
-      style: "",
-      description: [],
-      phases: [],
-      features: [],
-    },
-    galleries: [],
-  };
-
-  const [selectedProject, setSelectedProject] = useState<Project>(
-    foundProject ?? fallbackProject
-  );
-
   const { t, i18n } = useTranslation();
-
   const lang = i18n.language;
-  const desc =
-    lang === "fa"
-      ? selectedProject.fa_description
-      : selectedProject.en_description;
+  const [selectedProject, setSelectedProject] = useState<Project>(
+    foundProject as any
+  );
+  const description = selectedProject.descriptions?.find(
+    (e) => e.lang === lang
+  );
+
+  if (loading) return <Loading />;
 
   return (
     <section className={classes["home-modal-section"]}>
@@ -67,15 +36,15 @@ const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
           <div className={classes["home-modal-left-side"]}>
             <h1>
               {lang === "fa"
-                ? selectedProject.fa_name
-                : selectedProject.en_name}
+                ? selectedProject.mainTitleFa
+                : selectedProject.mainTitle}
             </h1>
             <button type="button" onClick={onClose}>
               {t(`close X`)}
             </button>
           </div>
           <div className={classes["home-modal-img"]}>
-            <img src={selectedProject.src} alt={selectedProject.name} />
+            <img src={selectedProject.src} alt={selectedProject.mainTitle} />
           </div>
           <div
             className={`${classes["home-modal-right-side"]} ${
@@ -84,19 +53,20 @@ const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
           >
             <ul>
               <li>
-                <strong>{t("location")}:</strong> {desc.location}
+                <strong>{t("location")}:</strong> {description?.location}
               </li>
               <li>
-                <strong>{t("area")}:</strong> {desc.area || "-"}
+                <strong>{t("area")}:</strong> {description?.metrz || "-"}
               </li>
               <li>
-                <strong>{t("Number of floors")}:</strong> {desc?.floors || "-"}
+                <strong>{t("Number of floors")}:</strong>{" "}
+                {description?.floor || "-"}
               </li>
               <li>
-                <strong>{t("Design style")}:</strong> {desc.style}
+                <strong>{t("Design style")}:</strong> {description?.style}
               </li>
             </ul>
-            <Link to={`/projects/${getSlug(selectedProject.name)}`}>
+            <Link to={`/projects/${getSlug(selectedProject.mainTitle)}`}>
               <button type="button">{t("Learn more +")}</button>
             </Link>
           </div>
@@ -113,12 +83,14 @@ const HomeModal: React.FC<HomeModalProps> = ({ src, name, onClose }) => {
               }}
               style={{
                 fontWeight:
-                  selectedProject.name === project.name ? "bold" : "normal",
+                  selectedProject.mainTitle === project.mainTitle
+                    ? "bold"
+                    : "normal",
                 cursor: "pointer",
                 marginRight: "1rem",
               }}
             >
-              {lang === "fa" ? project.fa_name : project.en_name}
+              {lang === "fa" ? project.mainTitleFa : project.mainTitle}
             </a>
           ))}
         </div>

@@ -15,11 +15,14 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
   const lang = i18n.language as "fa" | "en";
   return (
     <div className="border p-4">
-      <Link to={`/projects/${getSlug(project.name)}`}>
-        <li className={classes.item} key={project[`${lang}_name`] + index}>
+      <Link to={`/projects/${getSlug(project.mainTitle)}`}>
+        <li
+          className={classes.item}
+          key={lang === "fa" ? project.mainTitleFa : project.mainTitle + index}
+        >
           <div className={classes["label-row"]}>
             <span className={classes["project-name"]}>
-              {t(`${project[`${lang}_name`]}`)}
+              {t(`${lang === "fa" ? project.mainTitleFa : project.mainTitle}`)}
             </span>
 
             <span
@@ -28,7 +31,10 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
             />
           </div>
           <div className={classes["image-wrapper"]}>
-            <img src={project.src} alt={project[`${lang}_name`]} />
+            <img
+              src={project.src}
+              alt={lang === "fa" ? project.mainTitleFa : project.mainTitle}
+            />
           </div>
         </li>
       </Link>

@@ -1,22 +1,19 @@
 import { useEffect, useState } from "react";
 import classes from "../Project/ProjectData.module.css";
-import { projects } from "../../data/projects";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import ProjectModal from "./ProjectModal";
 import { t } from "i18next";
-import i18n from "../../i18n";
-// import useIsMobile from "../../hooks/useIsMobile";
-import ProjectDescription from "../../components/ProjectDescription/ProjectDescription";
 import NotFound from "../../components/NotFoundError/NotFound";
 import { getSlug } from "../../util/help";
+import { useProjects } from "../../hooks/useProject";
+import ProjectDescription from "../../components/ProjectDescription/ProjectDescription";
+import Loading from "../../components/Loading/Loading";
 
 const ProjectData = () => {
   const { name } = useParams<{ name: string }>();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  // const isMobile = useIsMobile();
-  const lng = i18n.language as "en" | "fa";
+  const { projects, loading } = useProjects();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,8 +24,9 @@ const ProjectData = () => {
     setIsModalOpen(hasModal);
   }, [location.search]);
 
+  if (loading) return <Loading />;
   if (!name) return <NotFound />;
-  const project = projects.find((e) => getSlug(e.name) === name);
+  const project = projects.find((e) => getSlug(e.mainTitle) === name);
   if (!project) return <NotFound />;
 
   const handleClose = () => {
@@ -53,47 +51,49 @@ const ProjectData = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % project.galleries.length);
+    setCurrentImageIndex(
+      (prev) => (prev + 1) % (project.galleries || [])?.length
+    );
   };
 
   const prevImage = () => {
     setCurrentImageIndex(
-      (prev) => (prev - 1 + project.galleries.length) % project.galleries.length
+      (prev) =>
+        (prev - 1 + (project.galleries || [])?.length) %
+        (project.galleries || [])?.length
     );
   };
 
   return (
     <section className={classes["projects-project"]}>
       <div className={classes["left-panel"]}>
-        <ProjectDescription
-          projectData={project[`${lng}_description`]}
-          project={project}
-        />
+        <ProjectDescription project={project} />
         <button onClick={handleClose} className={classes["close-button"]}>
           {t("close X")}
         </button>
       </div>
 
       <div className={classes["right-panel"]}>
-        {project.galleries.map((project, index) => (
-          <div
-            key={index}
-            // onClick={() => !isMobile && openModal(index)}
-            onClick={() => openModal(index)}
-            style={{}}
-          >
-            <img
-              src={project}
-              alt={`gallery_${index}`}
-              className={classes["right-image"]}
-            />
-          </div>
-        ))}
+        {(project.galleries || [])?.length > 0 &&
+          (project?.galleries || []).map((project, index) => (
+            <div
+              key={index}
+              // onClick={() => !isMobile && openModal(index)}
+              onClick={() => openModal(index)}
+              style={{}}
+            >
+              <img
+                src={project.imageUrl}
+                alt={`gallery_${index}`}
+                className={classes["right-image"]}
+              />
+            </div>
+          ))}
       </div>
 
       {isModalOpen && (
         <ProjectModal
-          images={project.galleries}
+          galleries={project.galleries ?? []}
           currentIndex={currentImageIndex}
           setCurrentIndex={setCurrentImageIndex}
           onClose={closeModal}

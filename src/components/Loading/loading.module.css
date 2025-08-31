@@ -1,0 +1,30 @@
+.container {
+  height: 70vh;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Helvetica Neue", sans-serif;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Spinner */
+.spinner {
+  width: 70px;
+  height: 70px;
+  border: 6px solid #3c3f42;
+  border-top: 6px solid transparent;
+  border-radius: 50%;
+  margin: 2rem 0;
+}
+
+/* Loading text */
+.message {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 1rem;
+}

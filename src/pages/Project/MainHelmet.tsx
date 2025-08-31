@@ -1,12 +1,13 @@
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { projects } from "../../data/projects";
+import type { Project } from "./types";
 
 interface Props {
   isProjectPage: boolean;
+  projects: Project[];
 }
 
-const MainHelmet: React.FC<Props> = ({ isProjectPage }) => {
+const MainHelmet: React.FC<Props> = ({ isProjectPage, projects }) => {
   const { i18n } = useTranslation();
   const lang = i18n.language as "fa" | "en";
 
@@ -34,13 +35,12 @@ const MainHelmet: React.FC<Props> = ({ isProjectPage }) => {
     itemListElement: projects.map((project, index) => ({
       "@type": "CreativeWork",
       position: index + 1,
-      name: project[`${lang}_name`],
+      name: lang === "fa" ? project.mainTitleFa : project.mainTitle,
       image: project.src,
-      description: project[`${lang}_description`]?.description[0]?.substring(
-        0,
-        200
-      ),
-      url: `https://thatlab.art/projects/${project.name}`,
+      description: project.descriptions
+        ?.find((e) => e.lang === lang)
+        ?.description[0]?.substring(0, 200),
+      url: `https://thatlab.art/projects/${project.mainTitle}`,
       creator: {
         "@type": "Organization",
         name: lang === "fa" ? "دفتر طراحی دَت" : "ThatLab",

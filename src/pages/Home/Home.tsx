@@ -4,15 +4,17 @@ import { motion, useMotionValue, useAnimation } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import HomeModal from "../Home/HomeModal";
 import classes from "./Home.module.css";
-import { projects } from "../../data/projects";
 import MainHelmet from "../Project/MainHelmet";
 import { useHomeModal } from "../../store/useHomeModal";
+import { useProjects } from "../../hooks/useProject";
+import Loading from "../../components/Loading/Loading";
 
 const Home: React.FC = () => {
   const { i18n } = useTranslation();
   const lang = i18n.language;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const { projects, loading } = useProjects();
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   // const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -86,9 +88,11 @@ const Home: React.FC = () => {
     controls.stop();
   };
 
+  if (loading) return <Loading />;
+
   return (
     <>
-      <MainHelmet isProjectPage={false} />
+      <MainHelmet isProjectPage={false} projects={projects} />
       <section className={classes["home-main"]}>
         <section ref={containerRef} className={classes["home-section"]}>
           {projects.slice(0, 5).map((project, index) => (
@@ -145,7 +149,7 @@ const Home: React.FC = () => {
                   fontWeight: activeIndex === index ? "bold" : "normal",
                 }}
               >
-                {lang === "fa" ? project.fa_name : project.en_name}
+                {lang === "fa" ? project.mainTitleFa : project.mainTitle}
               </a>
             </div>
           ))}
@@ -153,7 +157,7 @@ const Home: React.FC = () => {
         {selectedProject && (
           <HomeModal
             src={selectedProject.src}
-            name={selectedProject.name}
+            name={selectedProject.mainTitle}
             onClose={() => setSelectedProject(null)}
           />
         )}

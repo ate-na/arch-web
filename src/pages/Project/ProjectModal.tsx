@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import classes from "./ProjectModal.module.css";
+import type { ProjectGallery } from "./types";
 
 interface Props {
-  images: string[];
+  galleries: ProjectGallery[];
   currentIndex: number;
   onClose: () => void;
   onNext: () => void;
@@ -14,7 +15,7 @@ interface Props {
 const SWIPE_THRESHOLD = 50;
 
 const ProjectModal: React.FC<Props> = ({
-  images,
+  galleries,
   currentIndex,
   onClose,
   onNext,
@@ -105,7 +106,7 @@ const ProjectModal: React.FC<Props> = ({
         onTouchEnd={onTouchEnd}
       >
         <img
-          src={images[currentIndex]}
+          src={galleries[currentIndex].imageUrl}
           alt={`project-${currentIndex}`}
           className={`${classes.image} ${isHovered ? classes.zoom : ""}`}
           style={{
@@ -133,10 +134,10 @@ const ProjectModal: React.FC<Props> = ({
           onTouchStart={handleThumbnailTouchStart}
           onTouchEnd={handleThumbnailTouchEnd}
         >
-          {images.map((img, index) => (
+          {galleries.map((gallery, index) => (
             <img
               key={index}
-              src={img}
+              src={gallery.imageUrl}
               alt={`thumb-${index}`}
               className={`${classes.thumbnail} ${
                 index === currentIndex ? classes.activeThumbnail : ""

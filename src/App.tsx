@@ -8,6 +8,7 @@ import AppRoutes from "./routes/AppRoute";
 import useIsMobile from "./hooks/useIsMobile";
 import PhonePopup from "./components/Popup/PhonePopup";
 import { HomeModalProvider } from "./store/HomeModalProvider";
+import { ProjectProvider } from "./store/ProjectProvider";
 
 function App() {
   const { i18n } = useTranslation();
@@ -26,9 +27,11 @@ function App() {
       <BrowserRouter>
         <ContactPopupProvider>
           <ContactPopupUpdater />
-          <HomeModalProvider>
-            <AppRoutes isMobile={isMobile} />
-          </HomeModalProvider>
+          <ProjectProvider>
+            <HomeModalProvider>
+              <AppRoutes isMobile={isMobile} />
+            </HomeModalProvider>
+          </ProjectProvider>
           <ContactPopup />
           <PhonePopup />
         </ContactPopupProvider>

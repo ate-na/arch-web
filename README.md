@@ -1,69 +1,59 @@
-# React + TypeScript + Vite
+# React Vite Tailwind Starter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application built with **Vite** and **Tailwind CSS**, following a modular and scalable architecture. This project includes multilingual support, reusable components, hooks, and organized folder structure for efficient development.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18 + Vite** – Fast and lightweight development environment
+- **Tailwind CSS** – Utility-first styling for responsive UI
+- **i18n support** – Multilingual capability using JSON-based translations
+- **State management** – Centralized store for app-wide state
+- **Modular structure** – Organized components, pages, hooks, routes, utils, and assets
+- **Reusable components** – Easily maintainable UI components
+- **Custom hooks** – Reusable logic for cleaner code
+- **Routing** – Structured routing with a dedicated `routes` folder
+- **Assets & data** – Organized folders for static assets and mock data
 
-## Expanding the ESLint configuration
+## Folder Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+public/
+src/
+├─ assets/ # Images, icons, and other static resources
+├─ components/ # Reusable UI components
+├─ data/ # Static data or mock data files
+├─ hooks/ # Custom React hooks
+├─ i18n/ # Internationalization setup and translation files
+├─ pages/ # Page-level components for routing
+├─ routes/ # Route definitions and configuration
+├─ store/ # State management (e.g., Redux, Zustand, or Context)
+├─ utils/ # Helper functions and utilities
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Node.js >= 18
+- npm or yarn
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Clone the repository
+git clone https://github.com/your-username/your-repo-name.git
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Navigate into the project directory
+cd your-repo-name
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Start the development server
+npm run dev
+# or
+yarn dev
+
+npm run build
+# or
+yarn build  

@@ -20,15 +20,15 @@ Folder Structure:
 
 public/
 src/
-  assets/       Images, icons, and other static resources
-  components/   Reusable UI components
-  data/         Static data or mock data files
-  hooks/        Custom React hooks
-  i18n/         Internationalization setup and translation files
-  pages/        Page-level components for routing
-  routes/       Route definitions and configuration
-  store/        State management (e.g., Redux, Zustand, or Context)
-  utils/        Helper functions and utilities
+assets/       Images, icons, and other static resources
+components/   Reusable UI components
+data/         Static data or mock data files
+hooks/        Custom React hooks
+i18n/         Internationalization setup and translation files
+pages/        Page-level components for routing
+routes/       Route definitions and configuration
+store/        State management (e.g., Redux, Zustand, or Context)
+utils/        Helper functions and utilities
 
 
 ## Getting Started
